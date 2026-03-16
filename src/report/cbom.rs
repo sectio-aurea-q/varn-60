@@ -91,6 +91,7 @@ pub fn generate_cbom(
     let sc_issues = components.iter().filter(|c| c.side_channel_status == "VARIABLE-TIME").count();
     let pmc_count = components.iter().filter(|c| c.pmc_verified).count();
     let ep_pq = endpoints.iter().filter(|e| e.pq_supported).count();
+    let ep_total = endpoints.len();
 
     let overall_risk = if quantum_vulnerable > 0 && sc_issues > 0 {
         "CRITICAL"
@@ -127,7 +128,7 @@ pub fn generate_cbom(
             side_channel_verified: sc_verified,
             side_channel_issues: sc_issues,
             pmc_verified: pmc_count,
-            endpoints_scanned: ep_pq + endpoints.iter().filter(|e| !e.pq_supported).count(),
+            endpoints_scanned: ep_total,
             endpoints_pq_ready: ep_pq,
             overall_risk: overall_risk.into(),
         },
