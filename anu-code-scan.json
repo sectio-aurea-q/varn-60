@@ -1,0 +1,4024 @@
+{
+  "path": "/Users/sabrinahackford/varn-60/src",
+  "files_scanned": 33,
+  "findings": [
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 34,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "const X25519: u16 = 0x001D;",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 37,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "const X25519_MLKEM768: u16 = 0x11EC;  // Hybrid PQ",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 69,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "0xC02C => \"TLS_ECDHE_ECDSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 70,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "0xC02B => \"TLS_ECDHE_ECDSA_AES_128_GCM_SHA256\".into(),",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 71,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0xC030 => \"TLS_ECDHE_RSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 72,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0xC02F => \"TLS_ECDHE_RSA_AES_128_GCM_SHA256\".into(),",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 73,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x009F => \"TLS_DHE_RSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 74,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x009E => \"TLS_DHE_RSA_AES_128_GCM_SHA256\".into(),",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 75,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "0xCCA9 => \"TLS_ECDHE_ECDSA_CHACHA20_POLY1305\".into(),",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 76,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0xCCA8 => \"TLS_ECDHE_RSA_CHACHA20_POLY1305\".into(),",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 86,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x001D => \"x25519\".into(),",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 89,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x11EC => \"X25519_MLKEM768 (PQ Hybrid)\".into(),",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 92,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x6399 => \"X25519Kyber768 (Legacy PQ)\".into(),",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 169,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "groups.push(X25519_MLKEM768);",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 174,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "groups.push(X25519);",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 190,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x0804, 0x0805, 0x0806, // RSA-PSS",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 191,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "0x0403, 0x0503, 0x0603, // ECDSA",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 192,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "0x0201, // RSA PKCS1",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 192,
+      "algorithm": "RSA-PKCS1",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "0x0201, // RSA PKCS1",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 209,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "ks.extend_from_slice(&X25519.to_be_bytes());",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 449,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "recommendations.push(\"Enable PQ key exchange (X25519_MLKEM768)\".into());",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 51,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"RSA\", algorithm: \"RSA\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 53,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"rsa\", algorithm: \"RSA\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 55,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"PKCS1\", algorithm: \"RSA-PKCS1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 55,
+      "algorithm": "RSA-PKCS1",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"PKCS1\", algorithm: \"RSA-PKCS1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 57,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"pkcs1\", algorithm: \"RSA-PKCS1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 57,
+      "algorithm": "RSA-PKCS1",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"pkcs1\", algorithm: \"RSA-PKCS1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 60,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"ECDSA\", algorithm: \"ECDSA\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 62,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"ecdsa\", algorithm: \"ECDSA\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 64,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"secp256k1\", algorithm: \"ECDSA-secp256k1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 64,
+      "algorithm": "ECDSA-secp256k1",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"secp256k1\", algorithm: \"ECDSA-secp256k1\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 66,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"P-256\", algorithm: \"ECDSA-P256\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 66,
+      "algorithm": "ECDSA-P256",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"P-256\", algorithm: \"ECDSA-P256\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 68,
+      "algorithm": "ECDSA",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"P-384\", algorithm: \"ECDSA-P384\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 68,
+      "algorithm": "ECDSA-P384",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"P-384\", algorithm: \"ECDSA-P384\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 70,
+      "algorithm": "Ed25519",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"Ed25519\", algorithm: \"Ed25519\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 72,
+      "algorithm": "Ed25519",
+      "category": "Signature",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"ed25519\", algorithm: \"Ed25519\", category: \"Signature\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-DSA (FIPS 204)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 75,
+      "algorithm": "DH",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"DiffieHellman\", algorithm: \"DH\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 77,
+      "algorithm": "DH",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"diffie_hellman\", algorithm: \"DH\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 79,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"X25519\", algorithm: \"X25519\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 80,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "recommendation: \"Replace with ML-KEM or X25519_MLKEM768 hybrid\" },",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 81,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"x25519\", algorithm: \"X25519\", category: \"KeyExchange\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 82,
+      "algorithm": "X25519",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "recommendation: \"Replace with ML-KEM or X25519_MLKEM768 hybrid\" },",
+      "recommendation": "Replace with ML-KEM or X25519_MLKEM768 hybrid"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 84,
+      "algorithm": "MD5",
+      "category": "Hash",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"MD5\", algorithm: \"MD5\", category: \"Hash\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with SHA-256 or SHA-3"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 86,
+      "algorithm": "MD5",
+      "category": "Hash",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"md5\", algorithm: \"MD5\", category: \"Hash\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with SHA-256 or SHA-3"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 88,
+      "algorithm": "SHA-1",
+      "category": "Hash",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"SHA1\", algorithm: \"SHA-1\", category: \"Hash\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with SHA-256 or SHA-3"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 90,
+      "algorithm": "SHA-1",
+      "category": "Hash",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"sha1\", algorithm: \"SHA-1\", category: \"Hash\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with SHA-256 or SHA-3"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 92,
+      "algorithm": "SHA-1",
+      "category": "Hash",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"SHA-1\", algorithm: \"SHA-1\", category: \"Hash\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with SHA-256 or SHA-3"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 95,
+      "algorithm": "DES",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"DES\", algorithm: \"DES\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 97,
+      "algorithm": "DES",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"3DES\", algorithm: \"3DES\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 97,
+      "algorithm": "3DES",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"3DES\", algorithm: \"3DES\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 99,
+      "algorithm": "RC4",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"RC4\", algorithm: \"RC4\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM or ChaCha20-Poly1305"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 101,
+      "algorithm": "RC4",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"rc4\", algorithm: \"RC4\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM or ChaCha20-Poly1305"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 103,
+      "algorithm": "Blowfish",
+      "category": "Cipher",
+      "risk": "VULNERABLE",
+      "detail": "Pattern { pattern: \"Blowfish\", algorithm: \"Blowfish\", category: \"Cipher\", risk: \"VULNERABLE\",",
+      "recommendation": "Replace with AES-256-GCM"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 168,
+      "algorithm": "RSA",
+      "category": "KeyExchange",
+      "risk": "VULNERABLE",
+      "detail": "Hash-tree traversal may be message-dependent.\", sign_cv * 100.0)",
+      "recommendation": "Replace with ML-KEM (FIPS 203)"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 85,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "recommendation: \"Replace with SHA-256 or SHA-3\" },",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 87,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "recommendation: \"Replace with SHA-256 or SHA-3\" },",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 89,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "recommendation: \"Replace with SHA-256 or SHA-3\" },",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 91,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "recommendation: \"Replace with SHA-256 or SHA-3\" },",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 93,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "recommendation: \"Replace with SHA-256 or SHA-3\" },",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 107,
+      "algorithm": "AES-128",
+      "category": "Cipher",
+      "risk": "PARTIAL",
+      "detail": "Pattern { pattern: \"AES-128\", algorithm: \"AES-128\", category: \"Cipher\", risk: \"PARTIAL\",",
+      "recommendation": "Upgrade to AES-256 for post-quantum safety margin"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 109,
+      "algorithm": "AES-128",
+      "category": "Cipher",
+      "risk": "PARTIAL",
+      "detail": "Pattern { pattern: \"aes_128\", algorithm: \"AES-128\", category: \"Cipher\", risk: \"PARTIAL\",",
+      "recommendation": "Upgrade to AES-256 for post-quantum safety margin"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 111,
+      "algorithm": "AES-128",
+      "category": "Cipher",
+      "risk": "PARTIAL",
+      "detail": "Pattern { pattern: \"AES128\", algorithm: \"AES-128\", category: \"Cipher\", risk: \"PARTIAL\",",
+      "recommendation": "Upgrade to AES-256 for post-quantum safety margin"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 113,
+      "algorithm": "SHA-256",
+      "category": "Hash",
+      "risk": "PARTIAL",
+      "detail": "Pattern { pattern: \"SHA-256\", algorithm: \"SHA-256\", category: \"Hash\", risk: \"PARTIAL\",",
+      "recommendation": "Consider SHA-384 for long-term post-quantum safety"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust_kem.rs",
+      "line": 12,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::KemCore;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust_kem.rs",
+      "line": 13,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::{MlKem512, MlKem768, MlKem1024};",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust_kem.rs",
+      "line": 39,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     VÄRN-60 (Anu) — Pure Rust ML-KEM Analysis          ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust_kem.rs",
+      "line": 89,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [3/4] Comparison with pqcrypto-kyber (assembly)...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust_kem.rs",
+      "line": 99,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "format!(\"CRITICAL — Pure Rust ML-KEM timing leak! d={:.3}, Δ={:.0}ns. \\",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/root_cause.rs",
+      "line": 283,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "This affects the pqcrypto-kyber C reference implementation on ARM64.\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust.rs",
+      "line": 72,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "&& (lower.contains(\"kyber\") || lower.contains(\"indcpa\") || lower.contains(\"poly\"))",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust.rs",
+      "line": 154,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"CRITICAL — KyberSlash was in this function\"",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust.rs",
+      "line": 250,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "if lower.contains(\"kyber\") || lower.contains(\"indcpa\") || lower.contains(\"poly\")",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/pure_rust.rs",
+      "line": 253,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "|| lower.contains(\"keccak\") || lower.contains(\"sha3\")",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 23,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "use crate::attack::dilithium::DilithiumLevel;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 45,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub fn for_level(level: DilithiumLevel) -> Self {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 47,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => Fips204Params {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 48,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "level: \"ML-DSA-44\".into(), q: Q, k: 4, l: 4, eta: 2,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 51,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => Fips204Params {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 52,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "level: \"ML-DSA-65\".into(), q: Q, k: 6, l: 5, eta: 4,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 55,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => Fips204Params {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 56,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "level: \"ML-DSA-87\".into(), q: Q, k: 8, l: 7, eta: 2,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 216,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub fn run_fips204_simulation(level: DilithiumLevel, mc_trials: usize) -> Fips204SimResult {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fips204_sim.rs",
+      "line": 222,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     Full ML-DSA math: z-norm + LowBits + Hint          ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 30,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "const TLS_AES_256_GCM_SHA384: u16 = 0x1302;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 67,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "0x1302 => \"TLS_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 69,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "0xC02C => \"TLS_ECDHE_ECDSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 71,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "0xC030 => \"TLS_ECDHE_RSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 73,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "0x009F => \"TLS_DHE_RSA_AES_256_GCM_SHA384\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 92,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "0x6399 => \"X25519Kyber768 (Legacy PQ)\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 124,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "TLS_AES_256_GCM_SHA384,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 128,
+      "algorithm": "ChaCha20-Poly1305",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "0xCCA9, 0xCCA8, // ChaCha20 suites",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 172,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "groups.push(0x6399); // Legacy Kyber",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/remote_scan.rs",
+      "line": 446,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendations.push(\"Enable PQ key exchange (ML-KEM)\".into());",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/binary_analysis.rs",
+      "line": 165,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"kyber\", \"indcpa\", \"poly_\", \"ntt\", \"invntt\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/binary_analysis.rs",
+      "line": 167,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "\"cmov\", \"cmp\", \"sha3\", \"keccak\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/binary_analysis.rs",
+      "line": 221,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "|| [\"kyber\", \"indcpa\", \"poly\", \"ntt\", \"cbd\", \"verify\", \"cmov\"]",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 92,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ── pqcrypto-kyber (AARCH64 Assembly) ──\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 94,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use pqcrypto_kyber::kyber768;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 96,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let keygen_op = bench_op(\"keygen\", || { kyber768::keypair(); }, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 99,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (pk, sk) = kyber768::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 100,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let encaps_op = bench_op(\"encaps\", || { kyber768::encapsulate(&pk); }, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 103,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (ss, ct) = kyber768::encapsulate(&pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 104,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let decaps_op = bench_op(\"decaps\", || { kyber768::decapsulate(&ct, &sk); }, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 108,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "library: \"pqcrypto-kyber\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 109,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 118,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::MlKem768;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 119,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::KemCore;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 144,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 156,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let kem_name = CString::new(\"ML-KEM-768\").unwrap();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 185,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 193,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ── liboqs ML-DSA-65 (Signing) ──\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 198,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sig_name = CString::new(\"ML-DSA-65\").unwrap();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/benchmark.rs",
+      "line": 231,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-DSA-65\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 52,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM (FIPS 203)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 54,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM (FIPS 203)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 56,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 58,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 61,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 63,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 65,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 67,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 69,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 71,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 73,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-DSA (FIPS 204)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 76,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM (FIPS 203)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 78,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM (FIPS 203)\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 80,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM or X25519_MLKEM768 hybrid\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 82,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with ML-KEM or X25519_MLKEM768 hybrid\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 96,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 98,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 100,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM or ChaCha20-Poly1305\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 100,
+      "algorithm": "ChaCha20-Poly1305",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM or ChaCha20-Poly1305\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 102,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM or ChaCha20-Poly1305\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 102,
+      "algorithm": "ChaCha20-Poly1305",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM or ChaCha20-Poly1305\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 104,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Replace with AES-256-GCM\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 108,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Upgrade to AES-256 for post-quantum safety margin\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 110,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Upgrade to AES-256 for post-quantum safety margin\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 112,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Upgrade to AES-256 for post-quantum safety margin\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 114,
+      "algorithm": "SHA-384",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "recommendation: \"Consider SHA-384 for long-term post-quantum safety\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 117,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"ML-KEM\", algorithm: \"ML-KEM\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 119,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"ml_kem\", algorithm: \"ML-KEM\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 121,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"mlkem\", algorithm: \"ML-KEM\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 123,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"Kyber\", algorithm: \"ML-KEM (Kyber)\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 123,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"Kyber\", algorithm: \"ML-KEM (Kyber)\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 125,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"kyber\", algorithm: \"ML-KEM (Kyber)\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 125,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"kyber\", algorithm: \"ML-KEM (Kyber)\", category: \"KEM\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 127,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"ML-DSA\", algorithm: \"ML-DSA\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 129,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"ml_dsa\", algorithm: \"ML-DSA\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 131,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"Dilithium\", algorithm: \"ML-DSA (Dilithium)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 131,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"Dilithium\", algorithm: \"ML-DSA (Dilithium)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 133,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"dilithium\", algorithm: \"ML-DSA (Dilithium)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 133,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"dilithium\", algorithm: \"ML-DSA (Dilithium)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 135,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SLH-DSA\", algorithm: \"SLH-DSA\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 137,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SPHINCS\", algorithm: \"SLH-DSA (SPHINCS+)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 137,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SPHINCS\", algorithm: \"SLH-DSA (SPHINCS+)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 139,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"sphincs\", algorithm: \"SLH-DSA (SPHINCS+)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 139,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"sphincs\", algorithm: \"SLH-DSA (SPHINCS+)\", category: \"Signature\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 141,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"AES-256\", algorithm: \"AES-256\", category: \"Cipher\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 143,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"AES256\", algorithm: \"AES-256\", category: \"Cipher\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 145,
+      "algorithm": "AES-256",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"aes_256\", algorithm: \"AES-256\", category: \"Cipher\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 147,
+      "algorithm": "ChaCha20-Poly1305",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"ChaCha20\", algorithm: \"ChaCha20-Poly1305\", category: \"Cipher\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 149,
+      "algorithm": "ChaCha20-Poly1305",
+      "category": "Cipher",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"chacha20\", algorithm: \"ChaCha20-Poly1305\", category: \"Cipher\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 151,
+      "algorithm": "SHA-384",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SHA-384\", algorithm: \"SHA-384\", category: \"Hash\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 153,
+      "algorithm": "SHA-512",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SHA-512\", algorithm: \"SHA-512\", category: \"Hash\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 155,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"SHA3\", algorithm: \"SHA-3\", category: \"Hash\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/code_scan.rs",
+      "line": 157,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "Pattern { pattern: \"sha3\", algorithm: \"SHA-3\", category: \"Hash\", risk: \"SAFE\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 21,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub enum DilithiumLevel {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 22,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Dilithium2,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 23,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Dilithium3,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 24,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Dilithium5,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 27,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "impl std::fmt::Display for DilithiumLevel {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 30,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => write!(f, \"ML-DSA-44 (Dilithium2)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 30,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => write!(f, \"ML-DSA-44 (Dilithium2)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 31,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => write!(f, \"ML-DSA-65 (Dilithium3)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 31,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => write!(f, \"ML-DSA-65 (Dilithium3)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 32,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => write!(f, \"ML-DSA-87 (Dilithium5)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 32,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => write!(f, \"ML-DSA-87 (Dilithium5)\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 38,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub struct DilithiumTimingResult {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 72,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub fn run_dilithium_timing(level: DilithiumLevel, samples: usize) -> DilithiumTimingResult {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 77,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     VÄRN-60 (Anu) — ML-DSA Rejection Sampling          ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 88,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let fixed_msg = b\"VARN-60 Anu test message for ML-DSA timing analysis - sectio-aurea-q\";",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 91,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => measure_dilithium2(fixed_msg, samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 92,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => measure_dilithium3(fixed_msg, samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 93,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => measure_dilithium5(fixed_msg, samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 118,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => measure_dilithium2_sign_only(fixed_msg, key_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 119,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => measure_dilithium3_sign_only(fixed_msg, key_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 120,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => measure_dilithium5_sign_only(fixed_msg, key_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 146,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let msg = format!(\"VARN-60 test message number {} for ML-DSA\", m);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 148,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => measure_dilithium2_sign_only_with_key(msg.as_bytes(), msg_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 149,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => measure_dilithium3_sign_only_with_key(msg.as_bytes(), msg_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 150,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => measure_dilithium5_sign_only_with_key(msg.as_bytes(), msg_samples),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 195,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumTimingResult {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 223,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium2(msg: &[u8], samples: usize) -> (Vec<u64>, Vec<u64>) {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 224,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 230,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium2::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 231,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 236,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium2::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 240,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 247,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium3(msg: &[u8], samples: usize) -> (Vec<u64>, Vec<u64>) {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 248,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 252,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium3::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 253,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 257,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium3::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 260,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 266,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium5(msg: &[u8], samples: usize) -> (Vec<u64>, Vec<u64>) {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 267,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 271,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium5::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 272,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 276,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let sm = pqcrypto_dilithium::dilithium5::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 279,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::open(&sm, &pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 285,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium2_sign_only(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 286,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 287,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..100 { let _ = pqcrypto_dilithium::dilithium2::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 291,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 297,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium3_sign_only(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 298,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 299,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..100 { let _ = pqcrypto_dilithium::dilithium3::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 303,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 309,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium5_sign_only(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 310,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 311,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..100 { let _ = pqcrypto_dilithium::dilithium5::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 315,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 322,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium2_sign_only_with_key(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 325,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 326,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium2::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 330,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 336,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium3_sign_only_with_key(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 337,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 338,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium3::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 342,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 348,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_dilithium5_sign_only_with_key(msg: &[u8], samples: usize) -> Vec<u64> {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 349,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 350,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium5::sign(msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/dilithium.rs",
+      "line": 354,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::sign(msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 27,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "use crate::attack::dilithium::DilithiumLevel;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 71,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "level: DilithiumLevel,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 214,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn calibrate_single_iteration(level: DilithiumLevel) -> f64 {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 221,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 222,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 223,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium2::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 226,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 230,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 231,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 232,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium3::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 235,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 239,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 240,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 241,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium5::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 244,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 279,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "level: DilithiumLevel,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 288,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 289,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 292,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium2::sign(warmup_msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 296,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 300,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 301,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 303,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium3::sign(warmup_msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 307,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 311,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 312,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 314,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..50 { let _ = pqcrypto_dilithium::dilithium5::sign(warmup_msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_rate.rs",
+      "line": 318,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/compiler_analysis.rs",
+      "line": 132,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "if lower.contains(&pattern.to_lowercase()) && lower.contains(\"kyber\") {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 13,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "use crate::attack::dilithium::DilithiumLevel;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 41,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub fn run_rejection_estimator(level: DilithiumLevel, total_samples: usize) -> EstimatorResult {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 165,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn measure_pair_mean(level: DilithiumLevel, samples: usize) -> f64 {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 170,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium2 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 171,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium2::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 172,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium2::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 175,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium2::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 179,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium3 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 180,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium3::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 181,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium3::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 184,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium3::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 188,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumLevel::Dilithium5 => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 189,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let (_pk, sk) = pqcrypto_dilithium::dilithium5::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 190,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "for _ in 0..10 { let _ = pqcrypto_dilithium::dilithium5::sign(&msg, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 193,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let _ = pqcrypto_dilithium::dilithium5::sign(&msg, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/rejection_estimator.rs",
+      "line": 202,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn find_clusters(means: &mut Vec<f64>, level: DilithiumLevel) -> CalibrationProfile {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/fo_oracle.rs",
+      "line": 52,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║       Side-Channel Analysis: ML-KEM Decapsulation      ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/mod.rs",
+      "line": 10,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub mod dilithium;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/mod.rs",
+      "line": 31,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "pub use dilithium::*;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/deep_inspect.rs",
+      "line": 68,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"pqclean_kyber\", \"kyber\", \"indcpa\", \"poly_\", \"polyvec\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/deep_inspect.rs",
+      "line": 70,
+      "algorithm": "SHA-3",
+      "category": "Hash",
+      "risk": "SAFE",
+      "detail": "\"verify\", \"cmov\", \"sha3\", \"keccak\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 36,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pub comparison_kyberslash: String,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 87,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "crate::target::SecurityLevel::MlKem512 => (2, 3, \"ML-KEM-512\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 88,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "crate::target::SecurityLevel::MlKem768 => (3, 2, \"ML-KEM-768\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 89,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "crate::target::SecurityLevel::MlKem1024 => (4, 2, \"ML-KEM-1024\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 139,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let kyberslash_comparison = format!(",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 140,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"KyberSlash (PQShield, 2024): d≈2.0, Δ≈variable, ML-KEM-512 key in <10 min\\n\\",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 140,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"KyberSlash (PQShield, 2024): d≈2.0, Δ≈variable, ML-KEM-512 key in <10 min\\n\\",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 142,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "KyberSlash targeted poly_frommsg (compiler-induced branch).\\n\\",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 145,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "if cohens_d > 1.0 { \"STRONGER signal than KyberSlash\" }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 146,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "else if cohens_d > 0.3 { \"comparable to KyberSlash\" }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 151,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "for line in kyberslash_comparison.lines() {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/exploitability.rs",
+      "line": 188,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "comparison_kyberslash: kyberslash_comparison,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 33,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Shake256f,  // NIST Level 5, fast (FIPS 205 SLH-DSA-256f)",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 42,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128f => write!(f, \"SLH-DSA-SHAKE-128f\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 43,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128s => write!(f, \"SLH-DSA-SHAKE-128s\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 44,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256f => write!(f, \"SLH-DSA-SHAKE-256f\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 45,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256s => write!(f, \"SLH-DSA-SHAKE-256s\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 46,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192f => write!(f, \"SLH-DSA-SHAKE-192f\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 47,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192s => write!(f, \"SLH-DSA-SHAKE-192s\"),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 89,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     VÄRN-60 (Anu) — SLH-DSA (SPHINCS+) Analysis       ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 89,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     VÄRN-60 (Anu) — SLH-DSA (SPHINCS+) Analysis       ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 146,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let msg = format!(\"VARN-60 SLH-DSA test message number {} - sectio-aurea-q\", m);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 163,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "format!(\"CRITICAL — SLH-DSA signing time varies by {:.0}x (CV={:.2}%). \\",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 173,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "format!(\"CLEAN — SLH-DSA signing appears constant-time (CV={:.4})\", sign_cv)",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 197,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let msg = b\"VARN-60 SLH-DSA timing analysis - sectio-aurea-q\";",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 222,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128f => measure_variant!(pqcrypto_sphincsplus::sphincsshake128fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 223,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128s => measure_variant!(pqcrypto_sphincsplus::sphincsshake128ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 224,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192f => measure_variant!(pqcrypto_sphincsplus::sphincsshake192fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 225,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192s => measure_variant!(pqcrypto_sphincsplus::sphincsshake192ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 226,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256f => measure_variant!(pqcrypto_sphincsplus::sphincsshake256fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 227,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256s => measure_variant!(pqcrypto_sphincsplus::sphincsshake256ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 234,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let msg = b\"VARN-60 SLH-DSA key-dependent test\";",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 251,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128f => measure_variant!(pqcrypto_sphincsplus::sphincsshake128fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 252,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128s => measure_variant!(pqcrypto_sphincsplus::sphincsshake128ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 253,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192f => measure_variant!(pqcrypto_sphincsplus::sphincsshake192fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 254,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192s => measure_variant!(pqcrypto_sphincsplus::sphincsshake192ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 255,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256f => measure_variant!(pqcrypto_sphincsplus::sphincsshake256fsimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 256,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256s => measure_variant!(pqcrypto_sphincsplus::sphincsshake256ssimple),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 279,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128f => measure_variant!(pqcrypto_sphincsplus::sphincsshake128fsimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 280,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake128s => measure_variant!(pqcrypto_sphincsplus::sphincsshake128ssimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 281,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192f => measure_variant!(pqcrypto_sphincsplus::sphincsshake192fsimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 282,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake192s => measure_variant!(pqcrypto_sphincsplus::sphincsshake192ssimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 283,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256f => measure_variant!(pqcrypto_sphincsplus::sphincsshake256fsimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/slhdsa.rs",
+      "line": 284,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "SlhDsaVariant::Shake256s => measure_variant!(pqcrypto_sphincsplus::sphincsshake256ssimple, msg),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/perf_scan.rs",
+      "line": 68,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [2/5] Setting up ML-KEM-768 via liboqs...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/perf_scan.rs",
+      "line": 72,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let kem_name = CString::new(\"ML-KEM-768\").unwrap();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/perf_scan.rs",
+      "line": 75,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ERROR: ML-KEM-768 not available in liboqs\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/perf_scan.rs",
+      "line": 208,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "target: \"ML-KEM-768 (liboqs)\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 53,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [1/4] ML-KEM-768 (pqcrypto-kyber) FO-Transform...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 53,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [1/4] ML-KEM-768 (pqcrypto-kyber) FO-Transform...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 55,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use pqcrypto_kyber::kyber768;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 59,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (pk, sk) = kyber768::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 60,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (ss, ct) = kyber768::encapsulate(&pk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 63,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (pk2, _) = kyber768::keypair();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 64,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let (_, ct_inv) = kyber768::encapsulate(&pk2);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 67,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "for _ in 0..1000 { kyber768::decapsulate(&ct, &sk); }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 75,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "kyber768::decapsulate(&ct, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 79,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "kyber768::decapsulate(&ct_inv, &sk);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 97,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "test: \"ML-KEM-768 pqcrypto-kyber FO-Transform\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 97,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "test: \"ML-KEM-768 pqcrypto-kyber FO-Transform\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 107,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [2/4] ML-KEM-768 (liboqs) FO-Transform...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 113,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let kem_name = CString::new(\"ML-KEM-768\").unwrap();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 166,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "test: \"ML-KEM-768 liboqs FO-Transform\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 177,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  [3/4] ML-KEM-768 (ml-kem pure Rust) FO-Transform...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 179,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::MlKem768;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 180,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "use ml_kem::KemCore;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 220,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "test: \"ML-KEM-768 ml-kem FO-Transform\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 230,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  [4/4] SLH-DSA (liboqs) signing variance...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/attack/ci_mode.rs",
+      "line": 275,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "test: \"SLH-DSA signing variance\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 20,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pub mlkem_768_cohens_d: f64,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 21,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pub mlkem_768_verdict: String,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 22,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pub mlkem_pure_rust_d: f64,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 23,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pub mlkem_pure_rust_verdict: String,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 52,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     FIPS 203 (ML-KEM) + FIPS 204 (ML-DSA) + FIPS 205  ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 52,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ║     FIPS 203 (ML-KEM) + FIPS 204 (ML-DSA) + FIPS 205  ║\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 64,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 203: ML-KEM (Kyber)                            ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 64,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 203: ML-KEM (Kyber)                            ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 69,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  ── pqcrypto-kyber (AARCH64 assembly) ──\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 77,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "std::fs::write(output_dir.join(\"mlkem-768-asm.json\"), &kem_json).ok();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 79,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let mlkem_d = kem_result.fo_cohens_d;",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 80,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "let mlkem_verdict = if mlkem_d > 0.2 { \"LEAK DETECTED\" } else { \"CONSTANT-TIME ✓\" };",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 86,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "std::fs::write(output_dir.join(\"mlkem-768-pure-rust.json\"), &pure_json).ok();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 95,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 204: ML-DSA (Dilithium)                        ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 95,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 204: ML-DSA (Dilithium)                        ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 100,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let dsa_timing = run_dilithium_timing(DilithiumLevel::Dilithium3, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 105,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let dsa_reject = run_rejection_estimator(DilithiumLevel::Dilithium3, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 110,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let dsa_rate = run_rejection_rate_attack(DilithiumLevel::Dilithium3, 20, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 124,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 205: SLH-DSA (SPHINCS+)                       ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 124,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  ┃  FIPS 205: SLH-DSA (SPHINCS+)                       ┃\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 142,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "\"ML-KEM: {} | ML-DSA: {} | SLH-DSA: {}\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 142,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "\"ML-KEM: {} | ML-DSA: {} | SLH-DSA: {}\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 142,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "\"ML-KEM: {} | ML-DSA: {} | SLH-DSA: {}\",",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 143,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_verdict, mldsa_verdict, slh_verdict",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 151,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  FIPS 203 (ML-KEM):\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 152,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"    pqcrypto-kyber (asm):   d={:.4} — {}\", mlkem_d, mlkem_verdict);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 152,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"    pqcrypto-kyber (asm):   d={:.4} — {}\", mlkem_d, mlkem_verdict);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 155,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  FIPS 204 (ML-DSA):\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 164,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  FIPS 205 (SLH-DSA):\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 173,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_768_cohens_d: mlkem_d, mlkem_768_verdict: mlkem_verdict.into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 174,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_pure_rust_d: pure_d, mlkem_pure_rust_verdict: pure_verdict.into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 197,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"    mlkem-768-asm.json\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 198,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"    mlkem-768-pure-rust.json\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 256,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 203 — ML-KEM (Kyber)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 256,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 203 — ML-KEM (Kyber)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 259,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "<span class=\"label\">pqcrypto-kyber (AARCH64 assembly)</span>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 260,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "<span class=\"value\">d = {mlkem_d:.4} <span class=\"badge {mlkem_badge_class}\">{mlkem_verdict}</span></span>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 268,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 204 — ML-DSA (Dilithium)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 268,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 204 — ML-DSA (Dilithium)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 300,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 205 — SLH-DSA (SPHINCS+)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 300,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "<h2>FIPS 205 — SLH-DSA (SPHINCS+)</h2>",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 332,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_d = r.mlkem_768_cohens_d,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 333,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_verdict = r.mlkem_768_verdict,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 334,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "mlkem_badge_class = if r.mlkem_768_cohens_d > 0.2 { \"badge-warn\" } else { \"badge-safe\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 335,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pure_d = r.mlkem_pure_rust_d,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 336,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pure_verdict = r.mlkem_pure_rust_verdict,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/audit.rs",
+      "line": 337,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "pure_badge_class = if r.mlkem_pure_rust_d > 0.2 { \"badge-warn\" } else { \"badge-safe\" },",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 6,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "run_dilithium_timing, DilithiumLevel,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 86,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Dilithium {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 109,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "DilithiumAttack {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 240,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "fn parse_dilithium_level(l: u16) -> DilithiumLevel {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 242,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "2 => DilithiumLevel::Dilithium2,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 243,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "3 => DilithiumLevel::Dilithium3,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 244,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "5 => DilithiumLevel::Dilithium5,",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 268,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  Running limited ML-KEM-768 scan (1000 samples)...\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 280,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "println!(\"  NIST PQC standards (ML-KEM + ML-DSA + SLH-DSA),\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 280,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  NIST PQC standards (ML-KEM + ML-DSA + SLH-DSA),\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 280,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  NIST PQC standards (ML-KEM + ML-DSA + SLH-DSA),\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 359,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Commands::Dilithium { level, samples } => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 360,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "if !lic.require_full(\"ML-DSA\") { return; }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 361,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let r = run_dilithium_timing(parse_dilithium_level(level), samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 363,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "std::fs::write(\"anu-dilithium.json\", &j).ok();",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 364,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  JSON: anu-dilithium.json\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 368,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let r = run_rejection_estimator(parse_dilithium_level(level), samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 375,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let r = run_rejection_rate_attack(parse_dilithium_level(level), num_keys, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 380,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "Commands::DilithiumAttack { level, num_keys, samples } => {",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 381,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "if !lic.require_full(\"ML-DSA Attack Chain\") { return; }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 382,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let dl = parse_dilithium_level(level);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 383,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let dir = PathBuf::from(\"anu-dilithium-attack\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 387,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  │  PHASE 1: ML-DSA Timing Variance                   │\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 389,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let t = run_dilithium_timing(dl, samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 408,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "println!(\"  │  ML-DSA ANALYSIS COMPLETE                          │\");",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 482,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "let r = run_fips204_simulation(parse_dilithium_level(level), samples);",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 488,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "if !lic.require_full(\"Pure Rust ML-KEM\") { return; }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/main.rs",
+      "line": 495,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "if !lic.require_full(\"SLH-DSA\") { return; }",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 156,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "name: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 158,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 162,
+      "algorithm": "ML-KEM (Kyber)",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "implementation: \"pqcrypto-kyber 0.8 (AARCH64 Assembly)\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 173,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "name: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 175,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 190,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "name: \"ML-KEM-768\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 192,
+      "algorithm": "ML-KEM",
+      "category": "KEM",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-KEM\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 208,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "name: \"ML-DSA-65\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 210,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-DSA\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 214,
+      "algorithm": "ML-DSA (Dilithium)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "implementation: \"pqcrypto-dilithium 0.5\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 225,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "name: \"ML-DSA-65\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 227,
+      "algorithm": "ML-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "algorithm: \"ML-DSA\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 243,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "name: \"SLH-DSA-SHA2-128s\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 245,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "algorithm: \"SLH-DSA\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 249,
+      "algorithm": "SLH-DSA (SPHINCS+)",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "implementation: \"pqcrypto-sphincsplus 0.7\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 260,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "name: \"SLH-DSA-SHA2-128s\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    },
+    {
+      "file": "/Users/sabrinahackford/varn-60/src/report/cbom.rs",
+      "line": 262,
+      "algorithm": "SLH-DSA",
+      "category": "Signature",
+      "risk": "SAFE",
+      "detail": "algorithm: \"SLH-DSA\".into(),",
+      "recommendation": "Quantum-safe ✓"
+    }
+  ],
+  "vulnerable": 55,
+  "partial": 9,
+  "safe": 382,
+  "summary": "CRITICAL — 55 quantum-vulnerable algorithms found"
+}
