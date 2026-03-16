@@ -130,7 +130,7 @@ pub fn run_fo_oracle(config: &AttackConfig) -> AttackResult {
     let mut best_delta: f64 = 0.0;
     let mut min_p: f64 = 1.0;
 
-    for (_i, result) in all_results[1..].iter().enumerate() {
+    for (i, result) in all_results[1..].iter().enumerate() {
         let delta = result.mean_ns - valid_mean;
         let pooled_sd = ((valid_stddev.powi(2) + result.stddev_ns.powi(2)) / 2.0).sqrt();
         let d = if pooled_sd > 0.0 { delta.abs() / pooled_sd } else { 0.0 };

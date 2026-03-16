@@ -12,6 +12,7 @@
 // Average ~4-7 iterations for Dilithium2, but varies per key+message.
 // This is variable-time BY DESIGN — and measurable.
 
+
 use crate::analysis::Statistics;
 use serde::Serialize;
 use std::time::Instant;

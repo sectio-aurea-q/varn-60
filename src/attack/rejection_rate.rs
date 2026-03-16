@@ -362,7 +362,7 @@ fn profile_key_rejection(
 }
 
 /// Chi-squared-like test: are two keys' iteration distributions different?
-fn are_distinguishable(a: &KeyRejectionProfile, b: &KeyRejectionProfile, _n: usize) -> bool {
+fn are_distinguishable(a: &KeyRejectionProfile, b: &KeyRejectionProfile, n: usize) -> bool {
     // Simple: compare rejection rates using a two-proportion z-test
     let p1 = a.rejection_rate;
     let p2 = b.rejection_rate;

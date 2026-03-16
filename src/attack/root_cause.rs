@@ -1,3 +1,4 @@
+#[allow(unused_assignments)]
 // VÄRN-60 (Anu) — Phase 2: Root Cause Analysis
 //
 // Automatically determines WHERE the timing leak originates:
@@ -8,8 +9,9 @@
 // Method: We measure each layer in isolation by varying what we time.
 
 use crate::target::SecurityLevel;
-use crate::analysis::Statistics;
+use crate::analysis::{Statistics, normal_cdf};
 use serde::Serialize;
+use std::time::Instant;
 
 #[derive(Debug, Serialize)]
 pub struct RootCauseResult {
@@ -149,7 +151,7 @@ pub fn run_root_cause(level: SecurityLevel, samples: usize) -> RootCauseResult {
     println!("  [3/5] Variance analysis...");
 
     let valid_cv = v_stats.stddev / v_stats.mean;
-    let _invalid_cv = i_stats.stddev / i_stats.mean;
+    let invalid_cv = i_stats.stddev / i_stats.mean;
 
     println!("         Valid:   σ={:.1} ns (CV={:.4})", v_stats.stddev, valid_cv);
     println!("         Invalid: σ={:.1} ns (CV={:.4})", i_stats.stddev, i_stats.stddev / i_stats.mean);
@@ -258,11 +260,11 @@ fn determine_root_cause(
     delta: f64, d: f64,
     patterns_cluster: bool,
     variance_ratio: f64,
-    _valid_skew: f64,
+    valid_skew: f64,
     key_independent: bool,
 ) -> (String, String) {
-    let _cause = String::new();
-    let _details = String::new();
+    let mut cause = String::new();
+    let mut details = String::new();
 
     if patterns_cluster && key_independent {
         cause = "FO-Transform re-encryption asymmetry".into();

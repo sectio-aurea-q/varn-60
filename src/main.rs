@@ -16,6 +16,7 @@ use varn_60::attack::{
 };
 use varn_60::target::SecurityLevel;
 use varn_60::target::liboqs::run_liboqs_scan;
+use varn_60::attack::perf_scan::run_pmc_kem_scan;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -174,6 +175,11 @@ enum Commands {
     /// liboqs scan — test Cloudflare/AWS/Signal's PQC library (all 3 standards)
     LiboqsScan {
         #[arg(short, long, default_value = "10000")]
+        samples: usize,
+    },
+    /// PMC scan — hardware-level side-channel detection via Performance Counters (sudo required)
+    PmcScan {
+        #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
     /// Platform information
@@ -474,6 +480,14 @@ fn main() {
             let j = serde_json::to_string_pretty(&r).unwrap();
             std::fs::write("anu-liboqs-scan.json", &j).ok();
             println!("  JSON: anu-liboqs-scan.json");
+        }
+        Commands::PmcScan { samples } => {
+            if !lic.require_full("PMC Scan") { return; }
+            if let Some(r) = run_pmc_kem_scan(samples) {
+                let j = serde_json::to_string_pretty(&r).unwrap();
+                std::fs::write("anu-pmc-scan.json", &j).ok();
+                println!("  JSON: anu-pmc-scan.json");
+            }
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();

@@ -1,0 +1,25 @@
+{
+  "target": "ML-KEM-768 (liboqs)",
+  "platform": "Apple M4 Pro",
+  "mode": "FIXED",
+  "samples": 1000,
+  "counters": [
+    {
+      "name": "Counter 0",
+      "valid_mean": 56256.58,
+      "invalid_mean": 56266.403,
+      "delta": -9.822999999996682,
+      "cohens_d": 0.002444328885207986,
+      "verdict": "CLEAN"
+    },
+    {
+      "name": "Counter 1",
+      "valid_mean": 296844.713,
+      "invalid_mean": 296840.357,
+      "delta": 4.355999999970663,
+      "cohens_d": 0.008813743743725969,
+      "verdict": "CLEAN"
+    }
+  ],
+  "verdict": "CONSTANT-TIME ✓ (max d=0.0088)"
+}

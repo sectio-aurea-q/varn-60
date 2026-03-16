@@ -9,6 +9,7 @@
 // Until now.
 
 use std::ffi::CString;
+use std::ptr;
 use std::time::Instant;
 use serde::Serialize;
 use crate::analysis::Statistics;
@@ -31,20 +32,20 @@ type OqsStatus = i32;
 const OQS_SUCCESS: OqsStatus = 0;
 
 extern "C" {
-    fn OQS_KEM_new(method_name: *const i8) -> *mut OQS_KEM;
-    fn OQS_KEM_keypair(kem: *const OQS_KEM, public_key: *mut u8, secret_key: *mut u8) -> OqsStatus;
-    fn OQS_KEM_encaps(kem: *const OQS_KEM, ciphertext: *mut u8, shared_secret: *mut u8, public_key: *const u8) -> OqsStatus;
-    fn OQS_KEM_decaps(kem: *const OQS_KEM, shared_secret: *mut u8, ciphertext: *const u8, secret_key: *const u8) -> OqsStatus;
-    fn OQS_KEM_free(kem: *mut OQS_KEM);
+    pub fn OQS_KEM_new(method_name: *const i8) -> *mut OQS_KEM;
+    pub fn OQS_KEM_keypair(kem: *const OQS_KEM, public_key: *mut u8, secret_key: *mut u8) -> OqsStatus;
+    pub fn OQS_KEM_encaps(kem: *const OQS_KEM, ciphertext: *mut u8, shared_secret: *mut u8, public_key: *const u8) -> OqsStatus;
+    pub fn OQS_KEM_decaps(kem: *const OQS_KEM, shared_secret: *mut u8, ciphertext: *const u8, secret_key: *const u8) -> OqsStatus;
+    pub fn OQS_KEM_free(kem: *mut OQS_KEM);
 
-    fn OQS_SIG_new(method_name: *const i8) -> *mut OQS_SIG;
-    fn OQS_SIG_keypair(sig: *const OQS_SIG, public_key: *mut u8, secret_key: *mut u8) -> OqsStatus;
-    fn OQS_SIG_sign(sig: *const OQS_SIG, signature: *mut u8, signature_len: *mut usize,
+    pub fn OQS_SIG_new(method_name: *const i8) -> *mut OQS_SIG;
+    pub fn OQS_SIG_keypair(sig: *const OQS_SIG, public_key: *mut u8, secret_key: *mut u8) -> OqsStatus;
+    pub fn OQS_SIG_sign(sig: *const OQS_SIG, signature: *mut u8, signature_len: *mut usize,
                     message: *const u8, message_len: usize, secret_key: *const u8) -> OqsStatus;
-#[allow(dead_code)]
-    fn OQS_SIG_verify(sig: *const OQS_SIG, message: *const u8, message_len: usize,
+    #[allow(dead_code)]
+    pub fn OQS_SIG_verify(sig: *const OQS_SIG, message: *const u8, message_len: usize,
                       signature: *const u8, signature_len: usize, public_key: *const u8) -> OqsStatus;
-    fn OQS_SIG_free(sig: *mut OQS_SIG);
+    pub fn OQS_SIG_free(sig: *mut OQS_SIG);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -78,7 +79,6 @@ fn sig_sizes(level: &str) -> SigSizes {
         "ML-DSA-44" => SigSizes { pk: 1312, sk: 2560, sig: 2420 },
         "ML-DSA-65" => SigSizes { pk: 1952, sk: 4032, sig: 3309 },
         "ML-DSA-87" => SigSizes { pk: 2592, sk: 4896, sig: 4627 },
-        "SLH_DSA_PURE_SHA2_128S" => SigSizes { pk: 32, sk: 64, sig: 7856 },
         _ => panic!("Unknown SIG level: {}", level),
     }
 }
@@ -172,6 +172,7 @@ impl OqsSig {
         (sig, elapsed)
     }
 
+    #[allow(dead_code)]
     fn timed_verify(&self, msg: &[u8], sig: &[u8], pk: &[u8]) -> (bool, u64) {
         let start = Instant::now();
         let rc = unsafe {
@@ -346,11 +347,11 @@ pub fn run_liboqs_scan(samples: usize) -> LiboqsScanResult {
 
     // ═══ SLH-DSA ═══
     println!("  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-    println!("  ┃  FIPS 205: SLH_DSA_PURE_SHA2_128S via liboqs              ┃");
+    println!("  ┃  FIPS 205: SLH-DSA-SHA2-128s via liboqs              ┃");
     println!("  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     println!();
 
-    let slh = OqsSig::new("SLH_DSA_PURE_SHA2_128S").expect("liboqs SLH-DSA not available");
+    let slh = OqsSig::new("SLH-DSA-SHA2-128s").expect("liboqs SLH-DSA not available");
     let slh_samples = (samples / 20).max(50);
 
     println!("  Single-key signing ({} samples)...", slh_samples);
@@ -418,7 +419,7 @@ pub fn run_liboqs_scan(samples: usize) -> LiboqsScanResult {
         dsa_level: "ML-DSA-65".into(),
         dsa_sign_cv: sign_cv, dsa_key_cv: key_cv,
         dsa_verdict,
-        slh_variant: "SLH_DSA_PURE_SHA2_128S".into(),
+        slh_variant: "SLH-DSA-SHA2-128s".into(),
         slh_sign_cv: slh_cv, slh_msg_cv: msg_cv,
         slh_verdict,
     }
