@@ -22,6 +22,7 @@ use varn_60::attack::remote_scan::run_remote_scan;
 use varn_60::report::cbom::run_cbom_generation;
 use varn_60::attack::ci_mode::run_ci_mode;
 use varn_60::attack::code_scan::run_code_scan;
+use varn_60::attack::dual_proof::run_dual_proof;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -208,6 +209,11 @@ enum Commands {
         #[arg(short, long, default_value = "0.2")]
         threshold: f64,
         #[arg(short, long, default_value = "5000")]
+        samples: usize,
+    },
+    /// Dual-Proof Engine — static analysis + dynamic measurement combined
+    Verify {
+        #[arg(short, long, default_value = "10000")]
         samples: usize,
     },
     /// Scan codebase for quantum-vulnerable cryptography
@@ -552,6 +558,13 @@ fn main() {
             if !r.passed {
                 std::process::exit(1);
             }
+        }
+        Commands::Verify { samples } => {
+            if !lic.require_full("Dual-Proof") { return; }
+            let r = run_dual_proof(samples);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-dual-proof.json", &j).ok();
+            println!("  JSON: anu-dual-proof.json");
         }
         Commands::ScanCode { path } => {
             if !lic.require_full("Code Scanner") { return; }
