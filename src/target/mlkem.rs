@@ -1,4 +1,3 @@
-use pqcrypto_traits::kem::{Ciphertext as CiphertextTrait, SharedSecret};
 use serde::Serialize;
 
 #[derive(Debug, Clone, Copy, Serialize, PartialEq)]

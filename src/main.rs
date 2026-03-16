@@ -15,6 +15,7 @@ use varn_60::attack::{
     run_slhdsa_timing, SlhDsaVariant,
 };
 use varn_60::target::SecurityLevel;
+use varn_60::target::liboqs::run_liboqs_scan;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -168,6 +169,11 @@ enum Commands {
         #[arg(short = 'v', long, default_value = "128f")]
         variant: String,
         #[arg(short, long, default_value = "500")]
+        samples: usize,
+    },
+    /// liboqs scan — test Cloudflare/AWS/Signal's PQC library (all 3 standards)
+    LiboqsScan {
+        #[arg(short, long, default_value = "10000")]
         samples: usize,
     },
     /// Platform information
@@ -461,6 +467,13 @@ fn main() {
             let j = serde_json::to_string_pretty(&r).unwrap();
             std::fs::write("anu-slhdsa.json", &j).ok();
             println!("  JSON: anu-slhdsa.json");
+        }
+        Commands::LiboqsScan { samples } => {
+            if !lic.require_full("liboqs Scan") { return; }
+            let r = run_liboqs_scan(samples);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-liboqs-scan.json", &j).ok();
+            println!("  JSON: anu-liboqs-scan.json");
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();

@@ -1,0 +1,19 @@
+{
+  "library": "liboqs",
+  "version": "0.15.0",
+  "platform": "Apple M4 Pro",
+  "kem_level": "ML-KEM-768",
+  "kem_valid_mean_ns": 12598.371836734694,
+  "kem_invalid_mean_ns": 12603.209183673469,
+  "kem_delta_ns": -4.837346938775227,
+  "kem_cohens_d": 0.0043585182032107464,
+  "kem_verdict": "CONSTANT-TIME ✓ (d=0.0044)",
+  "dsa_level": "ML-DSA-65",
+  "dsa_sign_cv": 0.6363581457327385,
+  "dsa_key_cv": 0.03599577537359342,
+  "dsa_verdict": "VARIABLE-TIME SIGNING (CV=63.64%)",
+  "slh_variant": "SLH_DSA_PURE_SHA2_128S",
+  "slh_sign_cv": 0.02009103091532206,
+  "slh_msg_cv": 0.005465792570894304,
+  "slh_verdict": "CONSTANT-TIME ✓ (CV=0.0201)"
+}

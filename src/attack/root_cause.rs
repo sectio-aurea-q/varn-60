@@ -261,8 +261,8 @@ fn determine_root_cause(
     _valid_skew: f64,
     key_independent: bool,
 ) -> (String, String) {
-    let cause;
-    let details;
+    let _cause = String::new();
+    let _details = String::new();
 
     if patterns_cluster && key_independent {
         cause = "FO-Transform re-encryption asymmetry".into();
