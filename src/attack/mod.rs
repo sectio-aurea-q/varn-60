@@ -23,6 +23,7 @@ pub mod remote_scan;
 pub mod ci_mode;
 pub mod code_scan;
 pub mod dual_proof;
+pub mod multi_lib;
 
 pub use fo_oracle::*;
 pub use root_cause::*;

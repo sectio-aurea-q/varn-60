@@ -18,6 +18,8 @@ pqcrypto-sphincsplus = "0.7"
 pqcrypto-traits = "0.3"
 ml-kem = "0.2"
 kem = "0.3.0-pre.0"
+aws-lc-rs = { version = "1", features = ["unstable"] }
+libcrux-ml-kem = "0.0.2-beta.2"
 
 # Core
 rand = "0.8"

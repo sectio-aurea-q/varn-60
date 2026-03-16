@@ -1,0 +1,24 @@
+{
+  "platform": "Apple M4 Pro",
+  "samples": 100,
+  "results": [
+    {
+      "library": "aws-lc-rs (BoringSSL/AWS-LC)",
+      "algorithm": "ML-KEM-768",
+      "valid_mean_ns": 11390.377551020409,
+      "invalid_mean_ns": 11383.030612244898,
+      "delta_ns": 7.346938775510353,
+      "cohens_d": 0.02229064891371964,
+      "verdict": "CONSTANT-TIME ✓ (d=0.0223)"
+    },
+    {
+      "library": "libcrux-ml-kem (Cryspen, verified)",
+      "algorithm": "ML-KEM-768",
+      "valid_mean_ns": 15256.316326530612,
+      "invalid_mean_ns": 15247.07142857143,
+      "delta_ns": 9.244897959182708,
+      "cohens_d": 0.031571737319817376,
+      "verdict": "CONSTANT-TIME ✓ (d=0.0316)"
+    }
+  ]
+}

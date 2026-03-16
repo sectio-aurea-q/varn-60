@@ -23,6 +23,7 @@ use varn_60::report::cbom::run_cbom_generation;
 use varn_60::attack::ci_mode::run_ci_mode;
 use varn_60::attack::code_scan::run_code_scan;
 use varn_60::attack::dual_proof::run_dual_proof;
+use varn_60::attack::multi_lib::run_multi_lib_scan;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -209,6 +210,11 @@ enum Commands {
         /// Cohen's d threshold (default 0.2 = small effect)
         #[arg(short, long, default_value = "0.2")]
         threshold: f64,
+        #[arg(short, long, default_value = "5000")]
+        samples: usize,
+    },
+    /// Multi-library ML-KEM scan — 5 implementations compared (aws-lc + libcrux + 3 more)
+    MultiLib {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
@@ -559,6 +565,13 @@ fn main() {
             if !r.passed {
                 std::process::exit(1);
             }
+        }
+        Commands::MultiLib { samples } => {
+            if !lic.require_full("Multi-Library Scan") { return; }
+            let r = run_multi_lib_scan(samples);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-multi-lib.json", &j).ok();
+            println!("  JSON: anu-multi-lib.json");
         }
         Commands::Verify { samples } => {
             if !lic.require_full("Dual-Proof") { return; }
