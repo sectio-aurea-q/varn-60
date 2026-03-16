@@ -202,7 +202,7 @@ pub fn run_pure_impl_analysis(binary: &str, level: SecurityLevel, samples: usize
     // ── Step 4: Risk assessment ──
     println!("  [4/4] Risk assessment...");
 
-    let critical_branches: Vec<&CRefBranch> = c_ref_branches.iter()
+    let _critical_branches: Vec<&CRefBranch> = c_ref_branches.iter()
         .filter(|b| b.risk.contains("CRITICAL") || b.risk.contains("HIGH"))
         .collect();
 

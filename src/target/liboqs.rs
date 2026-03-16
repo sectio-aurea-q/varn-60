@@ -9,7 +9,7 @@
 // Until now.
 
 use std::ffi::CString;
-use std::ptr;
+
 use std::time::Instant;
 use serde::Serialize;
 use crate::analysis::Statistics;

@@ -129,7 +129,7 @@ pub fn run_cross_process_client(samples: usize) -> CrossProcessResult {
     }
 
     // Interleaved measurement
-    for i in 0..samples {
+    for _i in 0..samples {
         // Valid
         let start = Instant::now();
         stream.write_all(&[MAGIC_VALID]).ok();

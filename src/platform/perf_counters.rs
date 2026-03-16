@@ -14,7 +14,7 @@
 //
 // NOBODY has done this for PQC on Apple Silicon. Until now.
 
-use std::ptr;
+
 
 // ═══════════════════════════════════════════════════════
 // KPC constants (from xnu source / reverse engineering)
