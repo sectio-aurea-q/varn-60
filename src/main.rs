@@ -17,6 +17,7 @@ use varn_60::attack::{
 use varn_60::target::SecurityLevel;
 use varn_60::target::liboqs::run_liboqs_scan;
 use varn_60::attack::perf_scan::run_pmc_kem_scan;
+use varn_60::attack::benchmark::run_benchmark;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -179,6 +180,11 @@ enum Commands {
     },
     /// PMC scan — hardware-level side-channel detection via Performance Counters (sudo required)
     PmcScan {
+        #[arg(short, long, default_value = "5000")]
+        samples: usize,
+    },
+    /// Benchmark — Speed + Security Score for all libraries (beats PQC-LEO)
+    Bench {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
@@ -488,6 +494,13 @@ fn main() {
                 std::fs::write("anu-pmc-scan.json", &j).ok();
                 println!("  JSON: anu-pmc-scan.json");
             }
+        }
+        Commands::Bench { samples } => {
+            if !lic.require_full("Benchmark") { return; }
+            let r = run_benchmark(samples);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-benchmark.json", &j).ok();
+            println!("  JSON: anu-benchmark.json");
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();
