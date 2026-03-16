@@ -151,7 +151,7 @@ pub fn run_root_cause(level: SecurityLevel, samples: usize) -> RootCauseResult {
     println!("  [3/5] Variance analysis...");
 
     let valid_cv = v_stats.stddev / v_stats.mean;
-    let _invalid_cv = i_stats.stddev / i_stats.mean;
+    let invalid_cv = i_stats.stddev / i_stats.mean;
 
     println!("         Valid:   σ={:.1} ns (CV={:.4})", v_stats.stddev, valid_cv);
     println!("         Invalid: σ={:.1} ns (CV={:.4})", i_stats.stddev, i_stats.stddev / i_stats.mean);
@@ -172,7 +172,7 @@ pub fn run_root_cause(level: SecurityLevel, samples: usize) -> RootCauseResult {
     // ── Test 4: Timing distribution shape ────────────────────
     println!("  [4/5] Distribution shape analysis...");
 
-    let _valid_skew = compute_skewness(&valid_times, v_stats.mean, v_stats.stddev);
+    let valid_skew = compute_skewness(&valid_times, v_stats.mean, v_stats.stddev);
     let invalid_skew = compute_skewness(&invalid_times, i_stats.mean, i_stats.stddev);
 
     println!("         Valid skewness:   {:.3}", valid_skew);

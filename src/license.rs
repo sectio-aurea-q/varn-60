@@ -88,7 +88,7 @@ fn verify_key(key: &str) -> bool {
     // The actual key is not stored in the binary
     let mut hasher = DefaultHasher::new();
     key.trim().hash(&mut hasher);
-    let _hash = hasher.finish();
+    let hash = hasher.finish();
 
     // Accept the VÄRN family key
     key.trim() == "44221111"
