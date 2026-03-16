@@ -19,6 +19,7 @@ use varn_60::target::liboqs::run_liboqs_scan;
 use varn_60::attack::perf_scan::run_pmc_kem_scan;
 use varn_60::attack::benchmark::run_benchmark;
 use varn_60::attack::remote_scan::run_remote_scan;
+use varn_60::report::cbom::run_cbom_generation;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -197,6 +198,8 @@ enum Commands {
         #[arg(short, long, default_value = "443")]
         port: u16,
     },
+    /// Generate Cryptographic Bill of Materials (EU Compliance, CycloneDX format)
+    Cbom,
     /// Platform information
     Info,
     /// Demo mode — limited scan, no license needed
@@ -518,6 +521,13 @@ fn main() {
             let filename = format!("anu-scan-{}.json", host.replace('.', "-"));
             std::fs::write(&filename, &j).ok();
             println!("  JSON: {}", filename);
+        }
+        Commands::Cbom => {
+            if !lic.require_full("CBOM") { return; }
+            let r = run_cbom_generation();
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-cbom.json", &j).ok();
+            println!("  CBOM: anu-cbom.json");
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();
