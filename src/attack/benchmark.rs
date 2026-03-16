@@ -34,7 +34,7 @@ pub struct BenchResult {
     pub libraries: Vec<BenchLibrary>,
 }
 
-fn bench_op<F: Fn()>(name: &str, f: F, samples: usize) -> BenchOp {
+fn bench_op<F: FnMut()>(name: &str, mut f: F, samples: usize) -> BenchOp {
     // Warmup
     for _ in 0..100 { f(); }
 

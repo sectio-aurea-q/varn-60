@@ -1,0 +1,126 @@
+{
+  "platform": "Apple M4 Pro",
+  "samples": 2000,
+  "libraries": [
+    {
+      "library": "pqcrypto-kyber",
+      "algorithm": "ML-KEM-768",
+      "operations": [
+        {
+          "operation": "keygen",
+          "mean_ns": 11448.575,
+          "stddev_ns": 1272.6076592973418,
+          "cv": 0.11115860788764904,
+          "ops_per_sec": 87347.11525233489,
+          "security": "VARIABLE (CV=11.12%)"
+        },
+        {
+          "operation": "encaps",
+          "mean_ns": 10942.6275,
+          "stddev_ns": 921.3250510371284,
+          "cv": 0.08419596217061473,
+          "ops_per_sec": 91385.72979844191,
+          "security": "VARIABLE (CV=8.42%)"
+        },
+        {
+          "operation": "decaps",
+          "mean_ns": 8372.3985,
+          "stddev_ns": 753.9409095846388,
+          "cv": 0.09005076736190219,
+          "ops_per_sec": 119440.08637429288,
+          "security": "VARIABLE (CV=9.01%)"
+        }
+      ]
+    },
+    {
+      "library": "ml-kem",
+      "algorithm": "ML-KEM-768",
+      "operations": [
+        {
+          "operation": "keygen",
+          "mean_ns": 20672.153,
+          "stddev_ns": 1418.0674798046955,
+          "cv": 0.06859795783267933,
+          "ops_per_sec": 48374.25496995886,
+          "security": "VARIABLE (CV=6.86%)"
+        },
+        {
+          "operation": "encaps",
+          "mean_ns": 17498.188,
+          "stddev_ns": 972.9681285353457,
+          "cv": 0.05560393616386713,
+          "ops_per_sec": 57148.774490250085,
+          "security": "VARIABLE (CV=5.56%)"
+        },
+        {
+          "operation": "decaps",
+          "mean_ns": 22891.421,
+          "stddev_ns": 2135.936916674977,
+          "cv": 0.09330731004750545,
+          "ops_per_sec": 43684.48773887825,
+          "security": "VARIABLE (CV=9.33%)"
+        }
+      ]
+    },
+    {
+      "library": "liboqs",
+      "algorithm": "ML-KEM-768",
+      "operations": [
+        {
+          "operation": "keygen",
+          "mean_ns": 9384.493,
+          "stddev_ns": 1031.2444062702764,
+          "cv": 0.10988813207812892,
+          "ops_per_sec": 106558.76668030974,
+          "security": "VARIABLE (CV=10.99%)"
+        },
+        {
+          "operation": "encaps",
+          "mean_ns": 10782.486,
+          "stddev_ns": 1196.3451996486422,
+          "cv": 0.1109526318558301,
+          "ops_per_sec": 92742.99080935509,
+          "security": "VARIABLE (CV=11.10%)"
+        },
+        {
+          "operation": "decaps",
+          "mean_ns": 12571.784,
+          "stddev_ns": 1264.7707780085975,
+          "cv": 0.10060392208525039,
+          "ops_per_sec": 79543.20564209502,
+          "security": "VARIABLE (CV=10.06%)"
+        }
+      ]
+    },
+    {
+      "library": "liboqs",
+      "algorithm": "ML-DSA-65",
+      "operations": [
+        {
+          "operation": "keygen",
+          "mean_ns": 68756.0585,
+          "stddev_ns": 5101.921060182099,
+          "cv": 0.07420322181763951,
+          "ops_per_sec": 14544.172860054216,
+          "security": "VARIABLE (CV=7.42%)"
+        },
+        {
+          "operation": "sign",
+          "mean_ns": 271532.663,
+          "stddev_ns": 193339.74869607293,
+          "cv": 0.7120312766794945,
+          "ops_per_sec": 3682.798190654507,
+          "security": "VARIABLE (CV=71.20%)"
+        },
+        {
+          "operation": "verify",
+          "mean_ns": 63152.0565,
+          "stddev_ns": 5522.714485373231,
+          "cv": 0.08745106321871293,
+          "ops_per_sec": 15834.797082182115,
+          "security": "VARIABLE (CV=8.75%)"
+        }
+      ]
+    }
+  ]
+}
