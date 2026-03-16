@@ -29,9 +29,10 @@ use varn_60::license::License;
 use varn_60::audit::run_full_audit;
 
 #[derive(Parser)]
-#[command(name = "anu", version = "0.3.0",
-    about = "VÄRN-60 (Anu) — Automated Side-Channel Scanner for Post-Quantum Cryptography\n\
-             Empirical measurement tool. No theory. Only data.\n\
+#[command(name = "anu", version = "1.2.0",
+    about = "VÄRN-60 (Anu) — The World's First Automated PQC Side-Channel Scanner\n\
+             All 3 NIST Standards · 3 Libraries · Hardware PMC · Dual-Proof Engine\n\
+             Static + Dynamic · Remote Scan · CBOM · CI/CD · Code Scanner\n\
              sectio-aurea-q · meg.depth@proton.me")]
 struct Cli {
     /// License key (or set ANU_LICENSE env var)
@@ -45,7 +46,7 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     // ═══ ML-KEM (Kyber) ═══
-    /// ML-KEM FO-Transform timing oracle
+    /// ML-KEM FO-Transform timing oracle (FIPS 203)
     FoOracle {
         #[arg(short, long, default_value = "768")]
         level: u16,
@@ -83,7 +84,7 @@ enum Commands {
     },
 
     // ═══ ML-DSA (Dilithium) ═══
-    /// ML-DSA rejection sampling timing
+    /// ML-DSA rejection sampling timing (FIPS 204)
     Dilithium {
         #[arg(short, long, default_value = "3")]
         level: u16,
@@ -170,7 +171,7 @@ enum Commands {
         #[arg(short, long, default_value = "20000")]
         samples: usize,
     },
-    /// SLH-DSA (SPHINCS+) hash-based signature timing — FIPS 205
+    /// SLH-DSA (SPHINCS+) hash-based signature timing (FIPS 205)
     SlhDsa {
         /// Variant: 128f, 128s, 192f, 192s, 256f, 256s
         #[arg(short = 'v', long, default_value = "128f")]
@@ -178,22 +179,22 @@ enum Commands {
         #[arg(short, long, default_value = "500")]
         samples: usize,
     },
-    /// liboqs scan — test Cloudflare/AWS/Signal's PQC library (all 3 standards)
+    /// liboqs — scan Open Quantum Safe library (ML-KEM + ML-DSA + SLH-DSA)
     LiboqsScan {
         #[arg(short, long, default_value = "10000")]
         samples: usize,
     },
-    /// PMC scan — hardware-level side-channel detection via Performance Counters (sudo required)
+    /// PMC — hardware Performance Counter analysis (Cache + Instructions, sudo for full mode)
     PmcScan {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
-    /// Benchmark — Speed + Security Score for all libraries
+    /// Benchmark — Speed + Security Score, all libraries compared (beats PQC-LEO)
     Bench {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
-    /// Remote TLS PQC scan — point at any server, check quantum readiness
+    /// Remote scan — point at any server, check PQ readiness + downgrade risk
     Scan {
         /// Hostname to scan
         host: String,
@@ -201,9 +202,9 @@ enum Commands {
         #[arg(short, long, default_value = "443")]
         port: u16,
     },
-    /// Generate Cryptographic Bill of Materials (EU Compliance, CycloneDX format)
+    /// CBOM — Cryptographic Bill of Materials with side-channel status (EU Compliance)
     Cbom,
-    /// CI/CD mode — automated side-channel gate for GitHub Actions
+    /// CI/CD gate — automated PQC side-channel check for GitHub Actions (exit 0/1)
     Ci {
         /// Cohen's d threshold (default 0.2 = small effect)
         #[arg(short, long, default_value = "0.2")]
@@ -211,21 +212,21 @@ enum Commands {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
-    /// Dual-Proof Engine — static analysis + dynamic measurement combined
+    /// Dual-Proof — static binary analysis + dynamic timing (the verification no other tool can do)
     Verify {
         #[arg(short, long, default_value = "10000")]
         samples: usize,
     },
-    /// Scan codebase for quantum-vulnerable cryptography
+    /// Code scan — find quantum-vulnerable crypto in any codebase (RSA, ECDSA, DH, MD5...)
     ScanCode {
         /// Path to scan
         path: String,
     },
-    /// Platform information
+    /// System info — chip, cache, timer resolution, license status
     Info,
-    /// Demo mode — limited scan, no license needed
+    /// Demo — free limited ML-KEM scan (1000 samples, no license needed)
     Demo,
-    /// Full audit — all three NIST standards, HTML report (license required)
+    /// Full audit — all 3 NIST standards, HTML report, JSON data (license required)
     Audit {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
@@ -257,7 +258,7 @@ fn banner() {
     println!("    ╔═══════════════════════════════════════════════════╗");
     println!("    ║              V Ä R N - 6 0  (A n u)              ║");
     println!("    ║    Automated Side-Channel Scanner for PQC        ║");
-    println!("    ║    sectio-aurea-q              v0.3.0            ║");
+    println!("    ║    sectio-aurea-q              v1.2.0            ║");
     println!("    ╚═══════════════════════════════════════════════════╝");
     println!();
 }

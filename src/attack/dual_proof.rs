@@ -79,15 +79,26 @@ fn static_analysis(binary_path: &str) -> (Vec<StaticFinding>, usize, usize) {
     let mut prev_line = String::new();
     let mut fn_line_count: usize = 0;
 
-    // INNER crypto functions — where secret data is processed
-    // These are the functions that MUST be constant-time
+    // INNER crypto functions — specifically ML-KEM / CRYSTALS-Kyber
+    // These are where secret data is processed and MUST be constant-time
+    // Narrowed to avoid false positives from FrodoKEM, BIKE, NTRU etc.
     let hot_crypto_fns = [
-        "indcpa_dec", "indcpa_enc", "poly_tomsg", "poly_frommsg",
-        "cmov", "verify", "poly_compress", "poly_decompress",
-        "ntt", "invntt", "basemul", "poly_reduce", "poly_add",
-        "cbd", "rej_uniform", "gen_matrix",
-        "pqcrystals", "kyber_", "ml_kem_",
-        "polyvec", "poly_sub", "poly_csubq",
+        // ML-KEM core
+        "indcpa_dec", "indcpa_enc",
+        "poly_tomsg", "poly_frommsg",
+        "poly_compress", "poly_decompress",
+        "cmov",  // constant-time conditional move — branches here = critical
+        // CRYSTALS-Kyber specific
+        "pqcrystals_kyber", "kyber_indcpa",
+        "ml_kem_768", "ml_kem_512", "ml_kem_1024",
+        // NTT — number theoretic transform (core lattice math)
+        "ntt_", "invntt_", "basemul_",
+        // Polynomial operations on secret data
+        "poly_ntt", "poly_invntt", "poly_basemul",
+        "poly_reduce", "poly_add", "poly_sub",
+        "polyvec_ntt", "polyvec_basemul",
+        // CBD — centered binomial distribution (generates secret)
+        "cbd2", "cbd3", "cbd_",
     ];
 
     // Wrapper/dispatch functions — branches here are typically

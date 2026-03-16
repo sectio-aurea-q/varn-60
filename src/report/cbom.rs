@@ -115,7 +115,7 @@ pub fn generate_cbom(
         timestamp: Utc::now().to_rfc3339(),
         tool: CbomTool {
             name: "VÄRN-60 (Anu)".into(),
-            version: "0.7.0".into(),
+            version: "1.2.0".into(),
             vendor: "sectio-aurea-q".into(),
             platform: info.chip,
         },
