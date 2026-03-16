@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "threshold": 0.2,
+  "max_cohens_d": 0.013810100917908581,
+  "tests_run": 4,
+  "tests_passed": 4,
+  "tests_failed": 0,
+  "failures": []
+}

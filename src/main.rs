@@ -20,6 +20,7 @@ use varn_60::attack::perf_scan::run_pmc_kem_scan;
 use varn_60::attack::benchmark::run_benchmark;
 use varn_60::attack::remote_scan::run_remote_scan;
 use varn_60::report::cbom::run_cbom_generation;
+use varn_60::attack::ci_mode::run_ci_mode;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -200,6 +201,14 @@ enum Commands {
     },
     /// Generate Cryptographic Bill of Materials (EU Compliance, CycloneDX format)
     Cbom,
+    /// CI/CD mode — automated side-channel gate for GitHub Actions
+    Ci {
+        /// Cohen's d threshold (default 0.2 = small effect)
+        #[arg(short, long, default_value = "0.2")]
+        threshold: f64,
+        #[arg(short, long, default_value = "5000")]
+        samples: usize,
+    },
     /// Platform information
     Info,
     /// Demo mode — limited scan, no license needed
@@ -528,6 +537,15 @@ fn main() {
             let j = serde_json::to_string_pretty(&r).unwrap();
             std::fs::write("anu-cbom.json", &j).ok();
             println!("  CBOM: anu-cbom.json");
+        }
+        Commands::Ci { threshold, samples } => {
+            if !lic.require_full("CI Mode") { return; }
+            let r = run_ci_mode(threshold, samples);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            std::fs::write("anu-ci-result.json", &j).ok();
+            if !r.passed {
+                std::process::exit(1);
+            }
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();

@@ -20,6 +20,7 @@ pub mod slhdsa;
 pub mod perf_scan;
 pub mod benchmark;
 pub mod remote_scan;
+pub mod ci_mode;
 
 pub use fo_oracle::*;
 pub use root_cause::*;
