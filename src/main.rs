@@ -18,6 +18,7 @@ use varn_60::target::SecurityLevel;
 use varn_60::target::liboqs::run_liboqs_scan;
 use varn_60::attack::perf_scan::run_pmc_kem_scan;
 use varn_60::attack::benchmark::run_benchmark;
+use varn_60::attack::remote_scan::run_remote_scan;
 use varn_60::platform;
 use varn_60::report;
 use varn_60::license::License;
@@ -183,10 +184,18 @@ enum Commands {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
     },
-    /// Benchmark — Speed + Security Score for all libraries (beats PQC-LEO)
+    /// Benchmark — Speed + Security Score for all libraries
     Bench {
         #[arg(short, long, default_value = "5000")]
         samples: usize,
+    },
+    /// Remote TLS PQC scan — point at any server, check quantum readiness
+    Scan {
+        /// Hostname to scan
+        host: String,
+        /// Port (default 443)
+        #[arg(short, long, default_value = "443")]
+        port: u16,
     },
     /// Platform information
     Info,
@@ -501,6 +510,14 @@ fn main() {
             let j = serde_json::to_string_pretty(&r).unwrap();
             std::fs::write("anu-benchmark.json", &j).ok();
             println!("  JSON: anu-benchmark.json");
+        }
+        Commands::Scan { host, port } => {
+            if !lic.require_full("Remote Scan") { return; }
+            let r = run_remote_scan(&host, port);
+            let j = serde_json::to_string_pretty(&r).unwrap();
+            let filename = format!("anu-scan-{}.json", host.replace('.', "-"));
+            std::fs::write(&filename, &j).ok();
+            println!("  JSON: {}", filename);
         }
         Commands::Info => {
             let info = platform::PlatformInfo::detect();

@@ -1,0 +1,25 @@
+{
+  "host": "cloudflare.com",
+  "port": 443,
+  "ip": "104.16.133.229",
+  "tls_version": "TLS 1.3",
+  "cipher_suites": [
+    "TLS_AES_256_GCM_SHA384"
+  ],
+  "key_exchange": [
+    "X25519_MLKEM768 (PQ Hybrid)"
+  ],
+  "pq_supported": true,
+  "pq_suites": [
+    "X25519_MLKEM768 (PQ Hybrid)"
+  ],
+  "downgrade_possible": true,
+  "certificate_algorithms": [],
+  "quantum_vulnerable": false,
+  "risk_level": "MEDIUM",
+  "timing_ns": 283742917,
+  "recommendations": [
+    "Consider enforcing PQ-only key exchange",
+    "PQ downgrade attack is possible via MITM"
+  ]
+}
