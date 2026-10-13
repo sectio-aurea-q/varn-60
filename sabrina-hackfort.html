@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Critical -->
+  <title>Sabrina Hackfort — Independent Researcher | Quantum Biology & Post-Quantum Cryptography</title>
+  <meta name="description" content="Sabrina Hackfort is an independent researcher and systems programmer. Creator of the Hackfort Equation, MEG-APSU, TERRA, NANSHE, and MEGALODON security research. Based in Ahaus, Germany.">
+  <meta name="keywords" content="Sabrina Hackfort, Hackfort Equation, quantum biology, post-quantum cryptography, MEG-APSU, TERRA, NANSHE, MEGALODON Research, independent researcher, quantum criticality">
+  <meta name="author" content="Sabrina Hackfort">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sectio-aurea-q.github.io/sabrina-hackfort.html">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Sabrina Hackfort — Quantum Biology & Cryptography Researcher">
+  <meta property="og:description" content="Creator of the Hackfort Equation, MEG-APSU quantum enzyme classifier, TERRA biodiversity scanner, and MEGALODON post-quantum security research.">
+  <meta property="og:url" content="https://sectio-aurea-q.github.io/sabrina-hackfort.html">
+  <meta property="profile:first_name" content="Sabrina">
+  <meta property="profile:last_name" content="Hackfort">
+  
+  <!-- Schema.org Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sabrina Hackfort",
+    "alternateName": ["MEG", "Sandqueen", "sectio-aurea-q"],
+    "url": "https://sectio-aurea-q.github.io",
+    "email": "meg.depth@proton.me",
+    "jobTitle": "Independent Researcher",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "MEGALODON Research"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahaus",
+      "addressCountry": "DE"
+    },
+    "knowsAbout": ["Quantum Biology", "Post-Quantum Cryptography", "Rust Programming", "Enzyme Catalysis", "Biodiversity Conservation", "Quantum Tunneling"],
+    "sameAs": [
+      "https://github.com/sectio-aurea-q",
+      "https://zenodo.org/records/19208904",
+      "https://zenodo.org/records/19208577"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "research",
+        "name": "Hackfort Equation — Quantum Criticality Index"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Scholar Meta -->
+  <meta name="citation_author" content="Hackfort, Sabrina">
+  <meta name="citation_title" content="The Hackfort Equation: A Mathematical Framework for Quantum Criticality">
+  <meta name="citation_date" content="2026/03">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0d0f13;
+      --paper: #f6f4f0;
+      --cream: #ece8e0;
+      --navy: #1a1a2e;
+      --accent: #c4a35a;
+      --accent-dim: #a08642;
+      --blue: #2d4a7a;
+      --teal: #1a6b5a;
+      --rust: #8b3a2a;
+      --subtle: #6b6560;
+      --line: #d4cfc8;
+      --glow: rgba(196, 163, 90, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { 
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── HEADER ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'Φ';
+      position: absolute;
+      right: -5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(300px, 40vw, 600px);
+      color: var(--accent);
+      opacity: 0.04;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--subtle);
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--subtle);
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 10vw;
+    }
+
+    /* ── EQUATION SECTION ── */
+    .equation-section {
+      padding: 100px 10vw;
+      background: var(--navy);
+      color: var(--paper);
+      position: relative;
+    }
+
+    .equation-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(196,163,90,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .section-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    .equation-display {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      text-align: center;
+      padding: 50px 20px;
+      border: 1px solid rgba(196,163,90,0.3);
+      border-radius: 2px;
+      margin: 40px 0;
+      background: rgba(196,163,90,0.03);
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .equation-display .eq-main {
+      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+      color: var(--accent);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .equation-display .eq-where {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(246,244,240,0.5);
+      font-style: italic;
+    }
+
+    .equation-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--paper);
+      margin-bottom: 20px;
+    }
+
+    .equation-desc {
+      max-width: 700px;
+      color: rgba(246,244,240,0.7);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── TOOLS GRID ── */
+    .tools-section {
+      padding: 100px 10vw;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2px;
+      margin-top: 50px;
+      background: var(--line);
+    }
+
+    .tool-card {
+      background: var(--paper);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+
+    .tool-card:hover {
+      background: var(--cream);
+    }
+
+    .tool-name {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .tool-version {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .tool-desc {
+      font-size: 0.88rem;
+      color: var(--subtle);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .tool-stat {
+      margin-top: 16px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-dim);
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .publications-section {
+      padding: 100px 10vw;
+      background: var(--cream);
+    }
+
+    .pub-list {
+      margin-top: 50px;
+      max-width: 800px;
+    }
+
+    .pub-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pub-item:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .pub-type {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .pub-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--subtle);
+      font-weight: 300;
+    }
+
+    .pub-venue a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .pub-venue a:hover {
+      border-color: var(--blue);
+    }
+
+    /* ── NUMBERS ── */
+    .numbers-section {
+      padding: 80px 10vw;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .number-block .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .number-block .number-label {
+      font-size: 0.78rem;
+      color: var(--subtle);
+      margin-top: 8px;
+      font-weight: 300;
+    }
+
+    /* ── SECURITY ── */
+    .security-section {
+      padding: 100px 10vw;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .sec-card {
+      border: 1px solid rgba(196,163,90,0.15);
+      padding: 28px;
+      border-radius: 2px;
+    }
+
+    .sec-card .sec-name {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .sec-card .sec-desc {
+      font-size: 0.82rem;
+      color: rgba(246,244,240,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .sec-card .sec-stat {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-dim);
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 60px 10vw;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    footer .footer-links a {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.72rem;
+      color: var(--subtle);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label, h1, .hero-subtitle, .hero-meta {
+      animation: fadeUp 0.8s ease-out both;
+    }
+    h1 { animation-delay: 0.1s; }
+    .hero-subtitle { animation-delay: 0.2s; }
+    .hero-meta { animation-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { padding: 60px 6vw; }
+      .tools-section, .publications-section, .equation-section,
+      .numbers-section, .security-section { padding-left: 6vw; padding-right: 6vw; }
+      footer { padding: 40px 6vw; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .numbers-section { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════ HERO ════ -->
+  <section class="hero">
+    <div class="hero-label">MEGALODON Research</div>
+    <h1>Sabrina Hackfort</h1>
+    <p class="hero-subtitle">
+      Independent researcher and systems programmer building quantum biology 
+      and post-quantum cryptography tools in Rust. Creator of the Hackfort Equation.
+    </p>
+    <div class="hero-meta">
+      <span><span class="dot"></span>Ahaus, Germany</span>
+      <span><span class="dot"></span>meg.depth@proton.me</span>
+      <span><span class="dot"></span>github.com/sectio-aurea-q</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════ THE EQUATION ════ -->
+  <section class="equation-section">
+    <div class="section-label">The Hackfort Equation</div>
+    <h2 class="equation-name">Quantum Criticality Index</h2>
+    <p class="equation-desc">
+      A mathematical framework derived from a single axiom — the Hackfort Axiom — 
+      quantifying the degree to which quantum effects dominate a system's behavior. 
+      The equation unifies quantum biology, pharmacology, and cryptographic security 
+      under one principle: classical models of quantum systems are systematically incomplete, 
+      and the incompleteness is quantifiable.
+    </p>
+    <div class="equation-display">
+      <span class="eq-main">
+        Φ<sub>H</sub>(S, t) = Σ<sub>i</sub> w<sub>i</sub> · α<sub>i</sub>(t) · η<sub>i</sub> · (1 + |λ̃<sub>i</sub>(t)|)
+      </span>
+      <span class="eq-where">
+        where η<sub>i</sub> = 1 − 1/κ<sub>i</sub> &nbsp;·&nbsp; 
+        κ<sub>i</sub> = k<sub>QM</sub>/k<sub>class</sub> &nbsp;·&nbsp;
+        λ̃<sub>i</sub> = (d/dt ln Γ<sub>i</sub>) / λ<sub>ref</sub>
+      </span>
+    </div>
+    <p class="equation-desc" style="margin-top: 20px;">
+      Proven properties: non-negative, dimensionless, bounded, with a complete formal proof. 
+      Falsifiable predictions for enzyme kinetics under inhibition, biodiversity loss quantification, 
+      and cryptographic vulnerability assessment.
+    </p>
+  </section>
+
+  <!-- ════ BY THE NUMBERS ════ -->
+  <section class="numbers-section">
+    <div class="number-block">
+      <div class="number">55</div>
+      <div class="number-label">Enzymes classified<br>100% accuracy</div>
+    </div>
+    <div class="number-block">
+      <div class="number">10,774</div>
+      <div class="number-label">CR species scanned<br>via quantum lens</div>
+    </div>
+    <div class="number-block">
+      <div class="number">52/52</div>
+      <div class="number-label">PQ-TLS systems<br>downgradeable</div>
+    </div>
+    <div class="number-block">
+      <div class="number">5.833</div>
+      <div class="number-label">Cohen's d<br>MEG-APSU</div>
+    </div>
+  </section>
+
+  <!-- ════ TOOLS ════ -->
+  <section class="tools-section">
+    <div class="section-label">Research Tools — All Built in Rust</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-name">MEG-APSU</div>
+        <div class="tool-version">Quantum Enzyme Classifier</div>
+        <div class="tool-desc">
+          Classifies FDA-target enzymes as quantum-critical or classical 
+          using kinetic isotope effects and tunneling transmission coefficients.
+          35.7% of 115 FDA targets identified as quantum-critical.
+        </div>
+        <div class="tool-stat">Cohen's d = 5.833 · 100% accuracy · 55 enzymes</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">TERRA</div>
+        <div class="tool-version">Quantum Biodiversity Scanner</div>
+        <div class="tool-desc">
+          Scans IUCN Red List species through a quantum-biological pipeline: 
+          IUCN → UniProt → RCSB PDB → Lindblad quantum dynamics engine. 
+          All 10,774 critically endangered species processed.
+        </div>
+        <div class="tool-stat">v0.5.0 · 34 modules · Record: 9 QC enzymes (A. scutulata)</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">NANSHE</div>
+        <div class="tool-version">Quantum Dosing Error Calculator</div>
+        <div class="tool-desc">
+          Calculates pharmacological dosing errors caused by ignoring 
+          quantum tunneling in drug metabolism. Pure Rust, zero dependencies. 
+          Named after the Sumerian goddess of false measures.
+        </div>
+        <div class="tool-stat">v0.1.0 · CYP3A4 covers ~50% of all oral drugs</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">VÄRN-60</div>
+        <div class="tool-version">Post-Quantum Side-Channel Scanner</div>
+        <div class="tool-desc">
+          World's first automated post-quantum side-channel scanner. 
+          Real hardware timing analysis on ML-KEM/Kyber implementations 
+          using Rust and native CPU cycle counting.
+        </div>
+        <div class="tool-stat">v1.3.1 · Rust · Real hardware · github.com/sectio-aurea-q/varn-60</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">CROW</div>
+        <div class="tool-version">Post-Quantum Messenger</div>
+        <div class="tool-desc">
+          End-to-end encrypted messenger using ML-KEM-1024 (Kyber). 
+          Mesh routing, offline store-and-forward, WebRTC, 
+          built for journalists, whistleblowers, and activists.
+        </div>
+        <div class="tool-stat">v94 · crow-fly.net · ML-KEM-1024 · Mesh networking</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">MEGALODON</div>
+        <div class="tool-version">Security Research Framework</div>
+        <div class="tool-desc">
+          Multi-phase cryptographic security research. P1: Kyber timing oracle. 
+          P2: Process memory scanner (71 findings across 16 apps). 
+          P4: TLS downgrade engine. P5: Lattice cryptanalysis.
+        </div>
+        <div class="tool-stat">P2: Signal 32 findings · Chrome 6 · Safari 7 · Notes 20</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECURITY RESEARCH ════ -->
+  <section class="security-section">
+    <div class="section-label">Security Disclosures</div>
+    <h2 class="equation-name">Responsible Disclosure Research</h2>
+    <p class="equation-desc">
+      Active responsible disclosure processes with major technology companies.
+      90-day disclosure windows. Real vulnerabilities in production software.
+    </p>
+    <div class="security-grid">
+      <div class="sec-card">
+        <div class="sec-name">PQ-GHOST</div>
+        <div class="sec-desc">52 targets scanned, 0 survivors. All TLS 1.2 downgradeable. 
+        3 catastrophic findings: UN, BlackRock, Mastercard.</div>
+        <div class="sec-stat">52/52 vulnerable · 16 with PQ (all Cloudflare)</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-name">Process Memory (P2)</div>
+        <div class="sec-desc">Cryptographic key material found persisting in RAM after deletion 
+        across major applications.</div>
+        <div class="sec-stat">71 findings · 8/16 apps vulnerable</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-name">Kyber Timing Oracle (P1)</div>
+        <div class="sec-desc">Cache-line timing leak in ML-KEM on Apple Silicon. 
+        ~1200–1500ns signal, Cohen's d 0.63–0.73.</div>
+        <div class="sec-stat">Root cause: indcpa_enc() · Apple Silicon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PUBLICATIONS ════ -->
+  <section class="publications-section">
+    <div class="section-label">Publications & Preprints</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-type">Preprint · 2026</div>
+        <div class="pub-title">The Hackfort Equation: A Mathematical Framework for Quantum Criticality in Biological, Pharmacological, and Cryptographic Systems</div>
+        <div class="pub-venue">MEGALODON Research · Bitcoin-timestamped March 2026</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-type">Preprint · bioRxiv 2026</div>
+        <div class="pub-title">MEG-APSU: Quantum-Biological Classification of FDA-Target Enzymes</div>
+        <div class="pub-venue">bioRxiv BIORXIV/2026/713696 · 
+          <a href="https://doi.org/10.5281/zenodo.19208904">Zenodo 10.5281/zenodo.19208904</a></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-type">Preprint · bioRxiv 2026</div>
+        <div class="pub-title">TERRA: Quantum Biodiversity Scanner for Critically Endangered Species</div>
+        <div class="pub-venue">bioRxiv BIORXIV/2026/713880 · 
+          <a href="https://doi.org/10.5281/zenodo.19208577">Zenodo 10.5281/zenodo.19208577</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="footer-name">© 2026 Sabrina Hackfort — MEGALODON Research</div>
+    <div class="footer-links">
+      <a href="https://github.com/sectio-aurea-q">GitHub</a>
+      <a href="mailto:meg.depth@proton.me">Contact</a>
+      <a href="https://sectio-aurea-q.github.io/meg-apsu-blog.html">Blog</a>
+    </div>
+  </footer>
+
+</body>
+</html>
