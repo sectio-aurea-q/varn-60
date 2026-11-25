@@ -1,0 +1,66 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+  Data-independent timing (DIT) is switched on for this run.
+
+  VÄRN-60 (Anu) — FO-oracle test, ML-KEM decapsulation (PQClean via pqcrypto-mlkem)
+  Target:   ML-KEM-768
+  Platform: Apple M4 Pro
+  Rounds:   100000 (every class once per round, random order)
+  Estimate: Δ is the interpolated median of the paired differences, or their clipped mean where they
+            take only a few clock values (clock step 41 ns); positive: the class is slower than "valid"
+
+               valid | median    6791.0 ns | min    6541 ns
+             valid-2 | median    6791.0 ns | min    6542 ns
+           other-key | median    6791.0 ns | min    6583 ns
+            all-zero | median    6791.0 ns | min    6542 ns
+            all-ones | median    6791.0 ns | min    6541 ns
+          bit-flip-3 | median    6791.0 ns | min    6541 ns
+       bit-flip-1245 | median    6791.0 ns | min    6542 ns
+       bit-flip-2487 | median    6791.0 ns | min    6541 ns
+       bit-flip-3729 | median    6791.0 ns | min    6542 ns
+       bit-flip-4972 | median    6791.0 ns | min    6542 ns
+       bit-flip-6214 | median    6791.0 ns | min    6541 ns
+       bit-flip-7456 | median    6791.0 ns | min    6541 ns
+       bit-flip-8699 | median    6791.0 ns | min    6542 ns
+            random-0 | median    6791.0 ns | min    6542 ns
+            random-1 | median    6791.0 ns | min    6583 ns
+            random-2 | median    6791.0 ns | min    6542 ns
+            random-3 | median    6791.0 ns | min    6541 ns
+           control-a | median    6791.0 ns | min    6541 ns
+           control-b | median    6791.0 ns | min    6542 ns
+         control-ref | median    6792.0 ns | min    6542 ns
+
+  Comparison with the valid class (first run |z| > 4.5, confirmation |z| > 3 with the same sign):
+
+             valid-2: no difference detected (|z| = 0.27 ≤ 4.5; Δ = -0.1 ns [95% CI -0.9, +0.6])
+           other-key: no difference detected (|z| = 0.45 ≤ 4.5; Δ = -0.3 ns [95% CI -1.0, +0.4])
+            all-zero: no difference detected (|z| = 0.41 ≤ 4.5; Δ = -0.2 ns [95% CI -0.9, +0.5])
+            all-ones: no difference detected (|z| = 0.25 ≤ 4.5; Δ = -0.1 ns [95% CI -0.8, +0.6])
+          bit-flip-3: no difference detected (|z| = 0.67 ≤ 4.5; Δ = +0.1 ns [95% CI -0.6, +0.8])
+       bit-flip-1245: no difference detected (|z| = 1.02 ≤ 4.5; Δ = -0.2 ns [95% CI -1.0, +0.5])
+       bit-flip-2487: no difference detected (|z| = 0.36 ≤ 4.5; Δ = -0.1 ns [95% CI -0.8, +0.6])
+       bit-flip-3729: no difference detected (|z| = 0.29 ≤ 4.5; Δ = +0.0 ns [95% CI -0.7, +0.8])
+       bit-flip-4972: no difference detected (|z| = 0.18 ≤ 4.5; Δ = +0.0 ns [95% CI -0.7, +0.7])
+       bit-flip-6214: no difference detected (|z| = 0.61 ≤ 4.5; Δ = +0.2 ns [95% CI -0.6, +0.9])
+       bit-flip-7456: no difference detected (|z| = 0.05 ≤ 4.5; Δ = -0.1 ns [95% CI -0.8, +0.7])
+       bit-flip-8699: no difference detected (|z| = 0.54 ≤ 4.5; Δ = -0.3 ns [95% CI -1.0, +0.5])
+            random-0: no difference detected (|z| = 0.77 ≤ 4.5; Δ = +0.3 ns [95% CI -0.4, +1.1])
+            random-1: no difference detected (|z| = 0.07 ≤ 4.5; Δ = -0.0 ns [95% CI -0.7, +0.7])
+            random-2: no difference detected (|z| = 0.21 ≤ 4.5; Δ = +0.1 ns [95% CI -0.6, +0.8])
+            random-3: no difference detected (|z| = 0.99 ≤ 4.5; Δ = -0.2 ns [95% CI -0.9, +0.5])
+
+  Controls of this run (a ciphertext of their own):
+    identical inputs (control): Δ = -0.1 ns [95% CI -0.9, +0.6], z = -0.26  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +13.4 ns [95% CI +11.5, +15.3], z = +38.40  →  visible; added work ≈ 14.2 ns
+                                a shift of about 1.6 ns would have reached the threshold in half of such runs, about 2.1 ns in 95 %
+
+  ════════════════════════════════════════════════════════
+  RESULT: no confirmed timing difference for these input classes
+  largest |z| in the first run: 1.02 (Δ there = -0.2 ns)
+  The reference delay of this run (Δ = +13.4 ns [95% CI +11.5, +15.3]) was visible;
+  a shift of about 1.6 ns would have reached the threshold in half of such runs,
+  about 2.1 ns in 95 % of them.
+  Not a proof of constant-time behaviour.
+  ════════════════════════════════════════════════════════
+
+  JSON: results/2026-11-25-apple-m4-pro-dit/dit/fo-oracle-2.json

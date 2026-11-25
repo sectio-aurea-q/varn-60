@@ -248,10 +248,114 @@ experiment possible with it.
 
 ## Results
 
-The numbers of a series are printed by `python3 scripts/summarize.py <directory>` from its JSON
-files; `scripts/series.sh` runs a series. The measured series and their numbers are added with the
-commit that follows this one: every JSON file records the commit of the source it was produced
-with, so the code is committed first and measured afterwards.
+The numbers below are printed by `python3 scripts/summarize.py <directory>` from the JSON files of
+a series, or follow from its output; the `key_dependence` rows come from `key-dependence.txt`.
+`scripts/series.sh` runs a series, `scripts/dit-experiment.sh` the runs with and without `--dit`.
+All of them were measured with the source of commit `45efab4`, the commit before the one that
+added them; every JSON file records it (`build.git_commit`).
+
+### Apple M4 Pro, 25 November 2026
+
+Apple M4 Pro (macOS, AArch64) on mains power and without other load; 100 000 rounds per run,
+default settings (the tool asks the system for performance cores). The clock advances in steps of
+41.7 ns (recorded as 41). rustc 1.94.1, Apple clang 17.0.0, liboqs 0.15.0 (static library as installed on that
+machine), pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0 (aws-lc-sys 0.47.0),
+libcrux-ml-kem 0.0.12. One iteration of the added work cost 0.44 to 0.49 ns. Δ is the clipped mean
+in most comparisons and the interpolated median where the noise is larger (all comparisons of
+RustCrypto `ml-kem`, most of liboqs, a few of libcrux, and nearly all in the runs with `--dit`). All files of the series are in
+[`results/2026-11-25-apple-m4-pro`](results/2026-11-25-apple-m4-pro), those of the runs with and
+without `--dit` in [`results/2026-11-25-apple-m4-pro-dit`](results/2026-11-25-apple-m4-pro-dit).
+
+| Check | Result |
+|---|---|
+| `control`, negative: 5 × 10 runs with identical inputs | no detection in 50 runs. *z* of the 50 runs: mean +0.14, root mean square 1.02 (0 and 1 are expected for identical behaviour), largest \|z\| 2.2. Pooled *z* of the five control runs between −1.1 and +2.6 |
+| `control`, positive: 5 sweeps, *k* = 1 … 1024 | sensitivity *k* = 4 in all five sweeps: an added delay of 1.8 ns was detected and confirmed in every sweep, one of 0.9 ns (*k* = 2) in none (one of its five first runs crossed the threshold and was not confirmed). The further runs measured 1.3 to 1.9 ns for the delay of 1.8 ns, with 95 % intervals of about ±0.6 ns |
+| measured against expected size of the added delay, the 30 steps with *k* ≥ 32 | ratio between 0.91 and 1.03, median 1.00. The expected size lay inside the 95 % interval of the measured one in 9 of the 30 steps; these intervals are about ±0.6 ns |
+| `multi-lib`: 12 runs, 5 libraries, 2 test comparisons each | no detection in any first run, so there was nothing to confirm. *z* of the 120 comparisons: mean +0.05, root mean square 1.07, largest \|z\| 3.3 |
+| negative controls of these runs | no detection in 60 library runs. *z*: mean 0.00, root mean square 1.05, largest \|z\| 2.9 |
+| reference delay of these runs (32 iterations, 14.2 to 15.8 ns) | visible in 60 of 60 library runs, measured 10.7 to 14.8 ns. The median measured size was 0.97 of the expected one for PQClean, AWS-LC and libcrux, 0.86 for RustCrypto `ml-kem` and 0.79 for liboqs (single runs 0.68 to 1.04) |
+| detectable shift, median of the 12 runs (range of the single runs) | detected by half of such runs: AWS-LC 0.9 ns (0.8–1.0), libcrux 1.0 ns (0.9–1.6), PQClean 1.1 ns (1.1–1.2), liboqs 1.3 ns (1.2–1.5), RustCrypto `ml-kem` 4.8 ns (4.6–5.1). Detected by 95 % of such runs: 1.2, 1.3, 1.5, 1.8 and 6.5 ns |
+| `fo-oracle`, ML-KEM-768: 3 runs, 16 test comparisons each | one class stood out, the string of zero bytes: see below. The other 15 classes showed no detection (largest \|z\| 2.3). Negative controls without detection; reference delay visible in 3 of 3 runs; detectable shift 1.2 ns (half of such runs), 1.7 ns (95 %) |
+| `ci` | exit 0: five libraries tested, controls as they must be, no detection |
+| `key_dependence`: 8 pairs of keys | seven of the eight pairs differed by 6 to 17 ns (\|z\| 26 to 69), each by the same amount for the accepted and the rejected ciphertexts (within 1 ns). A hybrid key ran like the key whose seed it carries: no difference from that key was detected (16 comparisons, at most 0.5 ns, \|z\| at most 2.4), and its difference from the key whose secret part it carries was that of the two keys (within 1 ns). No key showed a difference between its accepted and its rejected ciphertext (largest \|z\| 2.6) |
+
+What these numbers say: on this machine identical inputs were not told apart (113 comparisons of
+identical classes without a detection, *z* spread as expected). An added delay of 1.8 ns in an
+operation of 7 µs was found in every sweep, one of 0.9 ns in none (one first run crossed the
+threshold and was not confirmed). The measured size of the reference delay was within a few per
+cent of the expected size for three libraries and up to a third below it for the other two.
+Between an accepted ciphertext and a ciphertext for another key or with one flipped bit, runs of
+this length detect (by extrapolation from the reference delay) a shift of 1.2 to 1.8 ns in about
+95 % of cases for four libraries and of 6.5 ns for RustCrypto `ml-kem`; none was detected.
+
+#### The string of zero bytes on the M4
+
+One of the 15 rejected classes of `fo-oracle` is a string of zero bytes. On the M4 it was
+decapsulated faster than the valid ciphertext in all seven runs made without `--dit` (the three
+runs of the series and four further ones): first-run *z* between −2.6 and −6.5, measured
+difference −0.7 to −1.7 ns. That is at the detection limit of a single run. Two of the seven first
+runs crossed the threshold, and both were confirmed by their second run. Taken together the runs
+leave little doubt: the first runs of the series pooled give *z* = −8.2, those of the four further
+runs *z* = −8.7. The string of 0xFF bytes shows the same tendency at a little under half the size
+(*z* between −1.3 and −2.6 in every run, pooled −3.7 and −4.0). No other class does.
+
+With the data-independent-timing mode of the processor switched on (`--dit`, PSTATE.DIT = 1) the
+difference was no longer detected. Four such runs alternated with the four further runs named
+above: *z* of the zero string between −2.1 and +1.4, pooled −0.2; no detection among the 64
+comparisons (*z*: mean −0.20, root mean square 0.88). The runs with DIT were somewhat noisier
+(detectable shift 1.6 to 1.7 ns for half of such runs instead of 1.2 to 1.3 ns), which does not
+account for a change of the pooled *z* from −8.7 to −0.2.
+
+What this shows, and what it does not. A string of zeros is a public input that any sender can
+choose; the difference reveals nothing secret. It indicates that on this processor the running
+time of this code depends on data values while DIT is clear; with DIT set the dependence was not
+seen. The mechanism was not identified. With DIT clear the architecture does not promise that the
+time of an instruction is independent of its operands, and data-dependent prefetching is a second
+candidate (B. Chen et al., *GoFetch*, USENIX Security 2024, report that setting DIT switches the
+data memory-dependent prefetcher off on the M3). The PQClean code in `pqcrypto-mlkem` does not set
+the mode (its source contains no such instruction), which fits the difference between the two
+conditions. A dependence on data values is the condition under which values that depend on a
+secret could show in the timing as well. Whether they do was not tested here. The `multi-lib` scan
+does not contain this class, so nothing is said about the other four libraries. On the x86-64
+machine (below) the class showed nothing (pooled *z* +0.1), at a detection limit of about 10 ns,
+which is about ten times the effect seen on the M4; the x86-64 build also runs other (AVX2) code.
+
+### Development machine, 25 November 2026
+
+Shared two-core cloud VM (Intel Xeon at 2.1 GHz with AVX2 and AVX-512, Linux, x86-64; clock source
+tsc, clock step 1 ns), 20 000 rounds per run, default settings. rustc 1.97.0, gcc 13.3.0, liboqs
+0.15.0 (built from source as a static library, CMake build type Release, without OpenSSL),
+pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0 (aws-lc-sys 0.47.0), libcrux-ml-kem 0.0.12.
+One iteration of the added work cost about 0.6 ns (0.48 to 0.66 ns in single runs). Δ is the
+interpolated median in every comparison. All files of the series are in
+[`results/2026-11-25-dev-vm-x86_64`](results/2026-11-25-dev-vm-x86_64).
+
+| Check | Result |
+|---|---|
+| `control`, negative: 5 × 10 runs with identical inputs | no detection in 50 runs. *z* of the 50 runs: mean +0.01, root mean square 1.12 (0 and 1 are expected for identical behaviour), largest \|z\| 3.0. Pooled *z* of the five control runs between −1.2 and +1.1 |
+| `control`, positive: 5 sweeps, *k* = 1 … 1024 | sensitivity *k* = 16 in all five sweeps: this delay (9.7 ns of added work, 7.6 ns in one sweep) was detected and confirmed every time, *k* = 8 (3.8 to 4.9 ns) never. The further runs measured 7.2 to 9.7 ns for *k* = 16, with 95 % intervals of about ±3 ns |
+| measured against expected size of the added delay, the 30 steps with *k* ≥ 32 | ratio between 0.86 and 1.05, median 0.97. The expected size lay inside the 95 % interval of the measured one in 12 of the 30 steps; the delays of 0.15 µs and more were measured 2 to 7 % too small |
+| `multi-lib`: 12 runs, 5 libraries, 2 test comparisons each | no detection in any first run, so there was nothing to confirm. *z* of the 120 comparisons: mean −0.11, root mean square 1.00, largest \|z\| 2.3 |
+| negative controls of these runs | no detection in 60 library runs. *z*: mean −0.21, root mean square 0.99, largest \|z\| 2.2 |
+| reference delay of these runs (32 iterations, about 19.4 ns) | PQClean, liboqs, AWS-LC, libcrux: visible in 48 of 48 library runs, measured 14 to 25 ns. Per library the median measured size was 0.93 to 0.99 of the expected one (single runs 0.75 to 1.27). RustCrypto `ml-kem`: visible in none of its 12 runs (*z* between −0.5 and +1.9) |
+| detectable shift, median of the 12 runs (range of the single runs) | detected by half of such runs: liboqs 4.9 ns (3.7–10.4), AWS-LC 7.6 ns (5.9–13.0), PQClean 8.4 ns (7.2–11.4), libcrux 8.8 ns (6.2–14.2). Detected by 95 % of such runs: 6.6, 10.4, 11.4 and 12.0 ns (up to 19.5 ns in a single run). No statement for RustCrypto `ml-kem` |
+| `fo-oracle`, ML-KEM-768: 3 runs, 16 test comparisons each | no detection. *z* of the 48 comparisons: mean +0.29, root mean square 0.95, largest \|z\| 2.4. Negative controls without detection; reference delay visible in 3 of 3 runs; detectable shift 9.7 to 10.4 ns (half of such runs), 13.2 to 14.2 ns (95 %) |
+| `ci` | exit 2: reference delay not visible for RustCrypto `ml-kem` |
+| `key_dependence`: 8 pairs of keys | two pairs differed by about half a microsecond (482 and 504 ns), the same for the accepted and the rejected ciphertexts. In both, the hybrid key ran like the key whose seed it carries: 477 and 507 ns away from the key whose secret part it carries, and without a detected difference from the other one (+2 and +4 ns, \|z\| 1.1 and 2.0). The other six pairs differed by 0 to 13 ns; in two of them one of the two comparisons reached the detection threshold. No key showed a difference between its accepted and its rejected ciphertext (largest \|z\| 2.0) |
+
+What these numbers say: on this machine identical inputs were not told apart. None of the 113
+comparisons of identical classes showed a detection, and their *z* values are spread as expected
+for identical behaviour. An added delay of about 10 ns in an operation of 12 µs was found in every
+sweep, one of 5 ns in none. For delays of 19 ns and more the measured size was within about 30 %
+of the expected size, and its median 1 to 7 % below it. For four libraries, runs of this length
+detect (by extrapolation from the reference delay) a shift of 7 to 12 ns between an accepted and a
+rejected ciphertext in about 95 % of cases, and one of 5 to 9 ns in half of the cases; in single
+runs these figures were up to about twice as large. None was detected. For RustCrypto `ml-kem` the runs were not
+sensitive enough: one call takes 90 to 106 µs there, and the noise of this machine hides a delay
+of 19 ns at 20 000 rounds. The tool reports that instead of a pass.
+
+These are not statements about the libraries on other hardware, and a shared VM is not a quiet
+measurement environment.
 
 ## Reading a result
 

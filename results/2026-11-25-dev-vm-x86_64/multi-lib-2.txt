@@ -1,0 +1,53 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+
+  VÄRN-60 (Anu) — ML-KEM-768, the same test for every library
+  Platform: Intel(R) Xeon(R) Processor @ 2.10GHz
+  Versions: liboqs 0.15.0; pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0, aws-lc-sys 0.47.0, libcrux-ml-kem 0.0.12
+  Rounds:   20000 (six classes per round, random order)
+  Rule:     paired sign test, first run |z| > 4.5, confirmation |z| > 3 with the same sign
+  Sign:     positive Δ and z: the class named in the line (rejection, second control, added delay) is slower
+  Estimate: Δ is the interpolated median of the paired differences, or their clipped mean where they
+            take only a few clock values (clock step 1 ns)
+
+  ── PQClean (pqcrypto-mlkem) ──
+    other ciphertext          : Δ = -2.5 ns [95% CI -6.9, +1.6], z = -1.13  →  no difference detected
+    one bit flipped           : Δ = -1.5 ns [95% CI -5.9, +2.8], z = -0.63  →  no difference detected
+    identical inputs (control): Δ = -0.2 ns [95% CI -4.3, +3.8], z = -0.10  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +17.6 ns [95% CI +13.8, +21.4], z = +8.95  →  visible; added work ≈ 19.4 ns
+                                a shift of about 8.8 ns would have reached the threshold in half of such runs, about 12.1 ns in 95 %
+
+  ── RustCrypto ml-kem ──
+    other ciphertext          : Δ = +5.5 ns [95% CI -19.2, +35.2], z = +0.42  →  no difference detected
+    one bit flipped           : Δ = -6.1 ns [95% CI -35.9, +26.2], z = -0.50  →  no difference detected
+    identical inputs (control): Δ = -12.9 ns [95% CI -41.0, +17.9], z = -0.72  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = -0.0 ns [95% CI -22.2, +30.6], z = -0.01  →  NOT visible (too noisy for this delay); added work ≈ 19.4 ns
+
+  ── liboqs ──
+    other ciphertext          : Δ = +0.1 ns [95% CI -1.4, +1.7], z = +0.16  →  no difference detected
+    one bit flipped           : Δ = -0.5 ns [95% CI -2.2, +1.2], z = -0.58  →  no difference detected
+    identical inputs (control): Δ = -0.8 ns [95% CI -2.6, +1.1], z = -0.83  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +18.5 ns [95% CI +17.1, +20.1], z = +22.74  →  visible; added work ≈ 19.4 ns
+                                a shift of about 3.7 ns would have reached the threshold in half of such runs, about 5.0 ns in 95 %
+
+  ── aws-lc-rs ──
+    other ciphertext          : Δ = +0.6 ns [95% CI -2.6, +4.1], z = +0.44  →  no difference detected
+    one bit flipped           : Δ = +0.5 ns [95% CI -3.2, +4.0], z = +0.22  →  no difference detected
+    identical inputs (control): Δ = +1.2 ns [95% CI -2.2, +4.7], z = +0.76  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +19.5 ns [95% CI +16.3, +22.6], z = +11.68  →  visible; added work ≈ 19.4 ns
+                                a shift of about 7.5 ns would have reached the threshold in half of such runs, about 10.3 ns in 95 %
+
+  ── libcrux-ml-kem ──
+    other ciphertext          : Δ = +1.5 ns [95% CI -4.2, +8.5], z = +0.39  →  no difference detected
+    one bit flipped           : Δ = +2.9 ns [95% CI -4.4, +7.7], z = +0.76  →  no difference detected
+    identical inputs (control): Δ = +0.3 ns [95% CI -6.1, +6.8], z = +0.08  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +24.5 ns [95% CI +18.7, +32.1], z = +7.75  →  visible; added work ≈ 19.4 ns
+                                a shift of about 14.2 ns would have reached the threshold in half of such runs, about 19.5 ns in 95 %
+
+  Summary
+    confirmed differences: none
+    negative control (identical inputs) without detection in 5 of 5 tested libraries
+    reference delay visible in 4 of 5 tested libraries
+    "No difference detected" is not a proof of constant-time behaviour.
+
+  JSON: results/2026-11-25-dev-vm-x86_64/multi-lib-2.json

@@ -1,0 +1,44 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+
+  VÄRN-60 (Anu) — negative and positive controls
+  Target: PQClean ML-KEM-768 (pqcrypto-mlkem), 100000 rounds per run
+  Rule: paired sign test, first run |z| > 4.5, confirmation |z| > 3 with the same sign
+  Δ is the interpolated median of the paired differences, or their clipped mean where they take
+  only a few clock values (clock step 41 ns); positive: class 1 is slower
+
+  [1] Negative controls: identical inputs, nothing added, 10 runs
+      run  1: no difference detected (|z| = 1.26 ≤ 4.5; Δ = -0.1 ns [95% CI -0.7, +0.5])
+      run  2: no difference detected (|z| = 1.72 ≤ 4.5; Δ = -0.3 ns [95% CI -0.9, +0.3])
+      run  3: no difference detected (|z| = 0.61 ≤ 4.5; Δ = +0.1 ns [95% CI -0.5, +0.6])
+      run  4: no difference detected (|z| = 0.90 ≤ 4.5; Δ = -0.1 ns [95% CI -0.6, +0.5])
+      run  5: no difference detected (|z| = 1.74 ≤ 4.5; Δ = +0.3 ns [95% CI -0.3, +0.8])
+      run  6: no difference detected (|z| = 0.11 ≤ 4.5; Δ = +0.0 ns [95% CI -0.5, +0.6])
+      run  7: no difference detected (|z| = 0.91 ≤ 4.5; Δ = +0.1 ns [95% CI -0.5, +0.7])
+      run  8: no difference detected (|z| = 1.05 ≤ 4.5; Δ = +0.1 ns [95% CI -0.5, +0.6])
+      run  9: no difference detected (|z| = 1.08 ≤ 4.5; Δ = -0.4 ns [95% CI -0.9, +0.2])
+      run 10: no difference detected (|z| = 0.98 ≤ 4.5; Δ = +0.0 ns [95% CI -0.5, +0.6])
+      detections: 0 of 10
+      all runs pooled (1000000 pairs): z = -0.14
+      →  PASS
+
+  [2] Positive controls: identical inputs, class 1 runs k more iterations of dummy_work
+      (one iteration cost ≈ 0.45 ns during the negative runs; per step it is measured again)
+      k =    1 (≈    0.4 ns): Δ = +0.5 ns [95% CI -0.1, +1.1], z = +3.68  →  not detected
+      k =    2 (≈    0.9 ns): Δ = +0.7 ns [95% CI +0.1, +1.3], z = +2.93  →  not detected
+      k =    4 (≈    1.8 ns): Δ = +1.3 ns [95% CI +0.8, +1.9], z = +6.97  →  confirmed (second run z = +7.30)
+      k =    8 (≈    3.6 ns): Δ = +3.5 ns [95% CI +2.9, +4.1], z = +14.16  →  confirmed (second run z = +12.43)
+      k =   16 (≈    7.1 ns): Δ = +7.0 ns [95% CI +6.4, +7.6], z = +27.82  →  confirmed (second run z = +26.41)
+      k =   32 (≈   14.3 ns): Δ = +13.0 ns [95% CI +12.4, +13.5], z = +51.81  →  confirmed (second run z = +54.32)
+      k =   64 (≈   28.5 ns): Δ = +28.7 ns [95% CI +28.1, +29.3], z = +106.42  →  confirmed (second run z = +104.99)
+      k =  128 (≈   57.3 ns): Δ = +56.9 ns [95% CI +56.3, +57.5], z = +189.54  →  confirmed (second run z = +187.26)
+      k =  256 (≈  114.2 ns): Δ = +115.0 ns [95% CI +114.4, +115.5], z = +265.49  →  confirmed (second run z = +266.99)
+      k =  512 (≈  227.9 ns): Δ = +231.1 ns [95% CI +230.5, +231.7], z = +291.25  →  confirmed (second run z = +290.53)
+      k = 1024 (≈  457.0 ns): Δ = +466.0 ns [95% CI +465.4, +466.6], z = +294.24  →  confirmed (second run z = +295.11)
+
+  Sensitivity on this machine: k = 4 and every larger step was detected and confirmed.
+  Size of that delay, from a further run that is not used for the decision:
+    added work   4 × 0.45 ns ≈ 1.8 ns
+    measured     Δ = +1.3 ns [95% CI +0.7, +1.9]
+
+  JSON: results/2026-11-25-apple-m4-pro/control-3.json

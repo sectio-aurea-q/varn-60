@@ -1,0 +1,13 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+  Chip:      Intel(R) Xeon(R) Processor @ 2.10GHz (linux, x86_64)
+  Features:  avx2, bmi2, popcnt, aes, avx512f
+  Scheduling: default scheduling, no pinning by the tool
+  DIT:       not requested
+  Clock:     step 1 ns (tsc (CLOCK_MONOTONIC))
+  Source:    commit 45efab44d7554be9d902e71e1006a9f146d28723
+  Compiler:  rustc 1.97.0 (2d8144b78 2026-07-07)
+  C compiler: cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  liboqs:    0.15.0
+  Crates:    pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0, aws-lc-sys 0.47.0, libcrux-ml-kem 0.0.12
+

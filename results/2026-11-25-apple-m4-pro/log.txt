@@ -1,0 +1,23 @@
+control-1 exit 0
+control-2 exit 0
+control-3 exit 0
+control-4 exit 0
+control-5 exit 0
+multi-lib-1 exit 0
+multi-lib-2 exit 0
+multi-lib-3 exit 0
+multi-lib-4 exit 0
+multi-lib-5 exit 0
+multi-lib-6 exit 0
+multi-lib-7 exit 0
+multi-lib-8 exit 0
+multi-lib-9 exit 0
+multi-lib-10 exit 0
+multi-lib-11 exit 0
+multi-lib-12 exit 0
+fo-oracle-1 exit 0
+fo-oracle-2 exit 0
+fo-oracle-3 exit 0
+ci-1 exit 0
+key-dependence exit 0
+series complete: all 22 runs ended with exit code 0

@@ -1,0 +1,66 @@
+PQClean ML-KEM-768 (pqcrypto-mlkem), 100000 rounds per pair, eight classes per round
+positive Δ: the class named first is slower
+key pair 1
+  key A: rejected vs. accepted ciphertext     Δ = -0.2 ns [95% CI -0.9, +0.4], z = +0.27
+  key B: rejected vs. accepted ciphertext     Δ = +0.4 ns [95% CI -0.2, +1.0], z = +2.15
+  key B vs. key A, accepted ciphertexts       Δ = +9.7 ns [95% CI +9.1, +10.3], z = +39.17
+  key B vs. key A, rejected ciphertexts       Δ = +10.4 ns [95% CI +9.8, +11.0], z = +41.74
+  secret part of A + seed of B, vs. key A     Δ = +10.1 ns [95% CI +9.5, +10.8], z = +41.65   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = -0.2 ns [95% CI -0.9, +0.4], z = -1.49   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = -0.2 ns [95% CI -0.8, +0.5], z = +0.09   (expected: no difference)
+key pair 2
+  key A: rejected vs. accepted ciphertext     Δ = -0.1 ns [95% CI -0.8, +0.5], z = +0.83
+  key B: rejected vs. accepted ciphertext     Δ = +0.4 ns [95% CI -0.2, +1.1], z = +0.16
+  key B vs. key A, accepted ciphertexts       Δ = +6.4 ns [95% CI +5.8, +7.0], z = +26.48
+  key B vs. key A, rejected ciphertexts       Δ = +6.7 ns [95% CI +6.1, +7.4], z = +26.65
+  secret part of A + seed of B, vs. key A     Δ = +6.3 ns [95% CI +5.6, +6.9], z = +26.92   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = -0.1 ns [95% CI -0.7, +0.5], z = +0.88   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = +0.3 ns [95% CI -0.4, +0.9], z = +0.36   (expected: no difference)
+key pair 3
+  key A: rejected vs. accepted ciphertext     Δ = +0.1 ns [95% CI -0.5, +0.7], z = +0.42
+  key B: rejected vs. accepted ciphertext     Δ = -0.3 ns [95% CI -0.9, +0.3], z = -0.67
+  key B vs. key A, accepted ciphertexts       Δ = -17.2 ns [95% CI -17.8, -16.6], z = -67.54
+  key B vs. key A, rejected ciphertexts       Δ = -17.5 ns [95% CI -18.1, -16.9], z = -69.41
+  secret part of A + seed of B, vs. key A     Δ = -17.2 ns [95% CI -17.8, -16.6], z = -68.56   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = +0.0 ns [95% CI -0.6, +0.6], z = -0.08   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = +0.1 ns [95% CI -0.5, +0.7], z = +0.50   (expected: no difference)
+key pair 4
+  key A: rejected vs. accepted ciphertext     Δ = -0.3 ns [95% CI -1.0, +0.3], z = -1.01
+  key B: rejected vs. accepted ciphertext     Δ = +0.1 ns [95% CI -0.6, +0.7], z = -0.25
+  key B vs. key A, accepted ciphertexts       Δ = -0.6 ns [95% CI -1.2, +0.1], z = -1.60
+  key B vs. key A, rejected ciphertexts       Δ = +0.1 ns [95% CI -0.6, +0.7], z = -0.21
+  secret part of A + seed of B, vs. key A     Δ = -0.4 ns [95% CI -1.0, +0.3], z = -1.64   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = +0.2 ns [95% CI -0.5, +0.9], z = +0.40   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = -0.5 ns [95% CI -1.2, +0.1], z = -1.30   (expected: no difference)
+key pair 5
+  key A: rejected vs. accepted ciphertext     Δ = +0.3 ns [95% CI -0.3, +0.9], z = +0.48
+  key B: rejected vs. accepted ciphertext     Δ = +0.4 ns [95% CI -0.3, +1.0], z = +1.58
+  key B vs. key A, accepted ciphertexts       Δ = -8.0 ns [95% CI -8.7, -7.4], z = -29.85
+  key B vs. key A, rejected ciphertexts       Δ = -8.4 ns [95% CI -9.1, -7.8], z = -29.05
+  secret part of A + seed of B, vs. key A     Δ = -7.8 ns [95% CI -8.4, -7.1], z = -30.48   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = -0.0 ns [95% CI -0.6, +0.6], z = -0.50   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = -0.2 ns [95% CI -0.8, +0.4], z = +0.18   (expected: no difference)
+key pair 6
+  key A: rejected vs. accepted ciphertext     Δ = +0.4 ns [95% CI -0.2, +1.0], z = +0.94
+  key B: rejected vs. accepted ciphertext     Δ = +0.5 ns [95% CI -0.1, +1.1], z = +2.63
+  key B vs. key A, accepted ciphertexts       Δ = -15.0 ns [95% CI -15.6, -14.3], z = -58.91
+  key B vs. key A, rejected ciphertexts       Δ = -15.2 ns [95% CI -15.8, -14.6], z = -57.83
+  secret part of A + seed of B, vs. key A     Δ = -15.3 ns [95% CI -15.9, -14.7], z = -58.22   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = -0.3 ns [95% CI -0.9, +0.3], z = -1.10   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = +0.4 ns [95% CI -0.2, +1.0], z = +0.78   (expected: no difference)
+key pair 7
+  key A: rejected vs. accepted ciphertext     Δ = +0.1 ns [95% CI -0.5, +0.7], z = +0.06
+  key B: rejected vs. accepted ciphertext     Δ = -0.1 ns [95% CI -0.7, +0.5], z = +0.98
+  key B vs. key A, accepted ciphertexts       Δ = -13.3 ns [95% CI -14.0, -12.7], z = -53.74
+  key B vs. key A, rejected ciphertexts       Δ = -13.3 ns [95% CI -13.9, -12.7], z = -53.22
+  secret part of A + seed of B, vs. key A     Δ = -13.1 ns [95% CI -13.7, -12.4], z = -52.76   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = +0.0 ns [95% CI -0.6, +0.6], z = +0.59   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = +0.2 ns [95% CI -0.4, +0.8], z = +0.72   (expected: no difference)
+key pair 8
+  key A: rejected vs. accepted ciphertext     Δ = +0.2 ns [95% CI -0.4, +0.9], z = -1.13
+  key B: rejected vs. accepted ciphertext     Δ = +0.7 ns [95% CI +0.1, +1.3], z = +1.53
+  key B vs. key A, accepted ciphertexts       Δ = -8.7 ns [95% CI -9.3, -8.0], z = -34.68
+  key B vs. key A, rejected ciphertexts       Δ = -7.9 ns [95% CI -8.5, -7.3], z = -31.18
+  secret part of A + seed of B, vs. key A     Δ = -8.7 ns [95% CI -9.3, -8.1], z = -31.46   (expected: as key B vs. key A)
+  secret part of A + seed of B, vs. key B     Δ = -0.3 ns [95% CI -0.9, +0.4], z = +0.02   (expected: no difference)
+  secret part of B + seed of A, vs. key A     Δ = -0.4 ns [95% CI -1.0, +0.3], z = -2.39   (expected: no difference)

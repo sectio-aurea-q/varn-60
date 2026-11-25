@@ -1,0 +1,58 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+
+  VÄRN-60 (Anu) — ML-KEM-768, the same test for every library
+  Platform: Apple M4 Pro
+  Versions: liboqs 0.15.0; pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0, aws-lc-sys 0.47.0, libcrux-ml-kem 0.0.12
+  Rounds:   100000 (six classes per round, random order)
+  Rule:     paired sign test, first run |z| > 4.5, confirmation |z| > 3 with the same sign
+  Sign:     positive Δ and z: the class named in the line (rejection, second control, added delay) is slower
+  Estimate: Δ is the interpolated median of the paired differences, or their clipped mean where they
+            take only a few clock values (clock step 41 ns)
+
+  ── PQClean (pqcrypto-mlkem) ──
+    other ciphertext          : Δ = -0.3 ns [95% CI -0.9, +0.3], z = -0.67  →  no difference detected
+    one bit flipped           : Δ = -0.4 ns [95% CI -1.0, +0.2], z = -1.32  →  no difference detected
+    identical inputs (control): Δ = +0.1 ns [95% CI -0.5, +0.7], z = +0.48  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +13.5 ns [95% CI +12.9, +14.1], z = +55.85  →  visible; added work ≈ 14.2 ns
+                                a shift of about 1.1 ns would have reached the threshold in half of such runs, about 1.5 ns in 95 %
+
+  ── RustCrypto ml-kem ──
+    other ciphertext          : Δ = +2.6 ns [95% CI +0.0, +5.2], z = +2.11  →  no difference detected
+    one bit flipped           : Δ = +1.6 ns [95% CI -1.1, +4.3], z = +1.28  →  no difference detected
+    identical inputs (control): Δ = +1.6 ns [95% CI -1.1, +4.2], z = +1.35  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +14.4 ns [95% CI +11.7, +17.1], z = +10.83  →  visible; added work ≈ 15.8 ns
+                                a shift of about 6.0 ns would have reached the threshold in half of such runs, about 8.2 ns in 95 %
+
+  ── liboqs ──
+    other ciphertext          : Δ = +0.2 ns [95% CI -0.5, +1.0], z = +0.58  →  no difference detected
+    one bit flipped           : Δ = +0.3 ns [95% CI -0.5, +1.0], z = +0.94  →  no difference detected
+    identical inputs (control): Δ = +0.1 ns [95% CI -0.6, +0.8], z = +0.25  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +11.6 ns [95% CI +9.9, +13.2], z = +39.79  →  visible; added work ≈ 15.8 ns
+                                a shift of about 1.3 ns would have reached the threshold in half of such runs, about 1.8 ns in 95 %
+
+  ── aws-lc-rs ──
+    other ciphertext          : Δ = +0.1 ns [95% CI -0.4, +0.6], z = -0.36  →  no difference detected
+    one bit flipped           : Δ = +0.2 ns [95% CI -0.4, +0.7], z = -0.24  →  no difference detected
+    identical inputs (control): Δ = +0.3 ns [95% CI -0.2, +0.8], z = +0.92  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +14.2 ns [95% CI +13.7, +14.8], z = +70.02  →  visible; added work ≈ 14.2 ns
+                                a shift of about 0.9 ns would have reached the threshold in half of such runs, about 1.2 ns in 95 %
+
+  ── libcrux-ml-kem ──
+    other ciphertext          : Δ = +0.2 ns [95% CI -0.4, +0.9], z = +0.85  →  no difference detected
+    one bit flipped           : Δ = +0.3 ns [95% CI -0.4, +1.0], z = +0.62  →  no difference detected
+    identical inputs (control): Δ = -0.2 ns [95% CI -0.8, +0.5], z = -0.13  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +13.3 ns [95% CI +12.7, +14.0], z = +65.09  →  visible; added work ≈ 14.3 ns
+                                a shift of about 0.9 ns would have reached the threshold in half of such runs, about 1.3 ns in 95 %
+
+  Summary
+    confirmed differences: none
+    negative control (identical inputs) without detection in 5 of 5 tested libraries
+    reference delay visible in 5 of 5 tested libraries
+    "No difference detected" is not a proof of constant-time behaviour.
+
+  CI: PASS — libraries tested: 5; no difference detected;
+      negative controls without detection, reference delay (k = 32) visible in every library.
+      This holds for differences of at least about the size of that delay; it is not a proof of constant-time behaviour.
+
+  JSON: results/2026-11-25-apple-m4-pro/ci-1.json

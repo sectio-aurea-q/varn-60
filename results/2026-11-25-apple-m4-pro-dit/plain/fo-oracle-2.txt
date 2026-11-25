@@ -1,0 +1,68 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+
+  VÄRN-60 (Anu) — FO-oracle test, ML-KEM decapsulation (PQClean via pqcrypto-mlkem)
+  Target:   ML-KEM-768
+  Platform: Apple M4 Pro
+  Rounds:   100000 (every class once per round, random order)
+  Estimate: Δ is the interpolated median of the paired differences, or their clipped mean where they
+            take only a few clock values (clock step 41 ns); positive: the class is slower than "valid"
+
+               valid | median    6833.0 ns | min    6625 ns
+             valid-2 | median    6833.0 ns | min    6625 ns
+           other-key | median    6833.0 ns | min    6625 ns
+            all-zero | median    6833.0 ns | min    6583 ns
+            all-ones | median    6833.0 ns | min    6625 ns
+          bit-flip-3 | median    6833.0 ns | min    6625 ns
+       bit-flip-1245 | median    6833.0 ns | min    6583 ns
+       bit-flip-2487 | median    6833.0 ns | min    6625 ns
+       bit-flip-3729 | median    6833.0 ns | min    6625 ns
+       bit-flip-4972 | median    6833.0 ns | min    6625 ns
+       bit-flip-6214 | median    6833.0 ns | min    6625 ns
+       bit-flip-7456 | median    6833.0 ns | min    6625 ns
+       bit-flip-8699 | median    6833.0 ns | min    6625 ns
+            random-0 | median    6833.0 ns | min    6625 ns
+            random-1 | median    6833.0 ns | min    6625 ns
+            random-2 | median    6833.0 ns | min    6625 ns
+            random-3 | median    6833.0 ns | min    6625 ns
+           control-a | median    6833.0 ns | min    6625 ns
+           control-b | median    6833.0 ns | min    6625 ns
+         control-ref | median    6833.0 ns | min    6625 ns
+
+  Comparison with the valid class (first run |z| > 4.5, confirmation |z| > 3 with the same sign):
+
+             valid-2: no difference detected (|z| = 1.15 ≤ 4.5; Δ = -0.4 ns [95% CI -1.1, +0.3])
+           other-key: no difference detected (|z| = 0.36 ≤ 4.5; Δ = +0.5 ns [95% CI -0.2, +1.2])
+            all-zero: difference detected in this run (|z| = 6.50 > 4.5; Δ = -1.2 ns [95% CI -1.9, -0.5])
+            all-ones: no difference detected (|z| = 1.60 ≤ 4.5; Δ = -0.0 ns [95% CI -0.7, +0.7])
+          bit-flip-3: no difference detected (|z| = 0.66 ≤ 4.5; Δ = +0.7 ns [95% CI -0.0, +1.4])
+       bit-flip-1245: no difference detected (|z| = 1.70 ≤ 4.5; Δ = -0.3 ns [95% CI -1.0, +0.4])
+       bit-flip-2487: no difference detected (|z| = 1.54 ≤ 4.5; Δ = +0.7 ns [95% CI -0.0, +1.4])
+       bit-flip-3729: no difference detected (|z| = 1.26 ≤ 4.5; Δ = -0.2 ns [95% CI -0.9, +0.5])
+       bit-flip-4972: no difference detected (|z| = 0.28 ≤ 4.5; Δ = +0.1 ns [95% CI -0.6, +0.8])
+       bit-flip-6214: no difference detected (|z| = 0.45 ≤ 4.5; Δ = -0.3 ns [95% CI -1.0, +0.4])
+       bit-flip-7456: no difference detected (|z| = 1.32 ≤ 4.5; Δ = +0.1 ns [95% CI -0.6, +0.8])
+       bit-flip-8699: no difference detected (|z| = 0.72 ≤ 4.5; Δ = +0.3 ns [95% CI -0.4, +1.0])
+            random-0: no difference detected (|z| = 1.04 ≤ 4.5; Δ = -0.3 ns [95% CI -1.0, +0.4])
+            random-1: no difference detected (|z| = 0.67 ≤ 4.5; Δ = +0.4 ns [95% CI -0.3, +1.1])
+            random-2: no difference detected (|z| = 0.84 ≤ 4.5; Δ = +0.4 ns [95% CI -0.3, +1.1])
+            random-3: no difference detected (|z| = 0.26 ≤ 4.5; Δ = +0.2 ns [95% CI -0.5, +0.9])
+
+  Controls of this run (a ciphertext of their own):
+    identical inputs (control): Δ = +0.1 ns [95% CI -0.6, +0.8], z = +0.16  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +13.3 ns [95% CI +12.5, +14.0], z = +48.29  →  visible; added work ≈ 14.2 ns
+                                a shift of about 1.2 ns would have reached the threshold in half of such runs, about 1.7 ns in 95 %
+
+  Confirmation run (same key and ciphertexts, new random order):
+            all-zero: second run z = -3.95  →  confirmed
+    identical inputs (control): Δ = -0.1 ns [95% CI -0.8, +0.6], z = -0.06  →  no difference detected, as it must be
+    reference delay (k = 32)  : Δ = +13.3 ns [95% CI +12.6, +14.1], z = +50.00  →  visible; added work ≈ 14.2 ns
+
+  ════════════════════════════════════════════════════════
+  RESULT: timing difference detected and confirmed for: all-zero
+  The classes differ from "valid" in the ciphertext (a public input). The result shows
+  input-dependent timing. The same difference in all rejection classes points to the
+  accept/rejection path; a difference for valid-2 to message-dependent timing.
+  ════════════════════════════════════════════════════════
+
+  JSON: results/2026-11-25-apple-m4-pro-dit/plain/fo-oracle-2.json

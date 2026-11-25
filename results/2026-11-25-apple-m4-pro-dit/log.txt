@@ -1,0 +1,9 @@
+plain fo-oracle-1 exit 0
+dit fo-oracle-1 exit 0
+plain fo-oracle-2 exit 0
+dit fo-oracle-2 exit 0
+plain fo-oracle-3 exit 0
+dit fo-oracle-3 exit 0
+plain fo-oracle-4 exit 0
+dit fo-oracle-4 exit 0
+experiment complete

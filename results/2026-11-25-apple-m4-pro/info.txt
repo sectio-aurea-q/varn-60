@@ -1,0 +1,13 @@
+
+  VÄRN-60 (Anu) v2.0.0 — timing side-channel tests for ML-KEM
+  Chip:      Apple M4 Pro (macos, aarch64)
+  Features:  neon, aes, sha3
+  Scheduling: macOS quality-of-service class user-interactive requested for the measuring thread
+  DIT:       not requested
+  Clock:     step 41 ns (macOS system counter (mach absolute time))
+  Source:    commit 45efab44d7554be9d902e71e1006a9f146d28723
+  Compiler:  rustc 1.94.1 (e408947bf 2026-03-25)
+  C compiler: Apple clang version 17.0.0 (clang-1700.3.19.1)
+  liboqs:    0.15.0
+  Crates:    pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0, aws-lc-sys 0.47.0, libcrux-ml-kem 0.0.12
+

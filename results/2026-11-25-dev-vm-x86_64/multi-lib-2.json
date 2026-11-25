@@ -1,0 +1,746 @@
+{
+  "build": {
+    "tool_version": "2.0.0",
+    "git_commit": "45efab44d7554be9d902e71e1006a9f146d28723",
+    "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+    "c_compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "crate_versions": "pqcrypto-mlkem 0.1.1, ml-kem 0.3.4, aws-lc-rs 1.19.0, aws-lc-sys 0.47.0, libcrux-ml-kem 0.0.12",
+    "liboqs_version": "0.15.0"
+  },
+  "platform": {
+    "chip": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "os": "linux",
+    "arch": "x86_64",
+    "cpu_features": [
+      "avx2",
+      "bmi2",
+      "popcnt",
+      "aes",
+      "avx512f"
+    ],
+    "scheduling": "default scheduling, no pinning by the tool",
+    "data_independent_timing": "not requested",
+    "clock_step_ns": 1,
+    "clock_source": "tsc (CLOCK_MONOTONIC)"
+  },
+  "rounds": 20000,
+  "threshold_abs_z": 4.5,
+  "confirmation_z": 3.0,
+  "reference_iterations": 32,
+  "libraries_selected": [
+    "pqclean",
+    "rustcrypto",
+    "liboqs",
+    "aws-lc",
+    "libcrux"
+  ],
+  "results": [
+    {
+      "library": "PQClean (pqcrypto-mlkem)",
+      "implementation": "PQClean avx2 code, via pqcrypto-mlkem",
+      "algorithm": "ML-KEM-768",
+      "other_ciphertext": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9904,
+          "n_b_faster": 10063,
+          "n_ties": 33,
+          "sign_z": -1.1252284788272027,
+          "delta_ns": -2.4615384615384617,
+          "delta_ci95_ns": [
+            -6.885714285714286,
+            1.6323529411764706
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": -2.0,
+          "median_delta_ci95_ns": [
+            -7.0,
+            2.0
+          ],
+          "clipped_mean_delta_ns": -3.612868047982552,
+          "clipped_mean_delta_ci95_ns": [
+            -14.157764548195052,
+            6.9320284522299485
+          ],
+          "median_a_ns": 12325.5,
+          "median_b_ns": 12318.0,
+          "welch_t_raw": -0.749002327336762,
+          "cohens_d_raw": 0.0074900232733676195,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "bit_flip": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9938,
+          "n_b_faster": 10027,
+          "n_ties": 35,
+          "sign_z": -0.6298764184579596,
+          "delta_ns": -1.4642857142857142,
+          "delta_ci95_ns": [
+            -5.934210526315789,
+            2.75
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": -1.0,
+          "median_delta_ci95_ns": [
+            -6.0,
+            3.0
+          ],
+          "clipped_mean_delta_ns": -6.068828120735768,
+          "clipped_mean_delta_ci95_ns": [
+            -16.364539131647923,
+            4.226882890176386
+          ],
+          "median_a_ns": 12325.5,
+          "median_b_ns": 12325.0,
+          "welch_t_raw": 0.8245002379973511,
+          "cohens_d_raw": 0.008245002379973512,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "negative_control": {
+        "n_pairs": 20000,
+        "n_b_slower": 9976,
+        "n_b_faster": 9990,
+        "n_ties": 34,
+        "sign_z": -0.09907920251106883,
+        "delta_ns": -0.20588235294117646,
+        "delta_ci95_ns": [
+          -4.3428571428571425,
+          3.76
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 0.0,
+        "median_delta_ci95_ns": [
+          -4.0,
+          4.0
+        ],
+        "clipped_mean_delta_ns": -5.563697735191638,
+        "clipped_mean_delta_ci95_ns": [
+          -16.178837895005547,
+          5.05144242462227
+        ],
+        "median_a_ns": 12327.0,
+        "median_b_ns": 12327.0,
+        "welch_t_raw": 0.7830193658558557,
+        "cohens_d_raw": 0.007830193658558556,
+        "difference_detected": false
+      },
+      "negative_control_passed": true,
+      "reference": {
+        "n_pairs": 20000,
+        "n_b_slower": 10620,
+        "n_b_faster": 9355,
+        "n_ties": 25,
+        "sign_z": 8.950496591616897,
+        "delta_ns": 17.602564102564102,
+        "delta_ci95_ns": [
+          13.783783783783784,
+          21.403846153846153
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 18.0,
+        "median_delta_ci95_ns": [
+          14.0,
+          21.0
+        ],
+        "clipped_mean_delta_ns": 13.854124693710864,
+        "clipped_mean_delta_ci95_ns": [
+          3.470631010783583,
+          24.237618376638146
+        ],
+        "median_a_ns": 12327.0,
+        "median_b_ns": 12343.0,
+        "welch_t_raw": 0.4383502695407288,
+        "cohens_d_raw": 0.004383502695407287,
+        "difference_detected": true
+      },
+      "reference_visible": true,
+      "reference_nominal_ns": 19.388671875,
+      "reference_size_plausible": true,
+      "detectable_shift_50_ns": 8.849960183854892,
+      "detectable_shift_95_ns": 12.085112295508512,
+      "further_negative_controls": [],
+      "usable": true,
+      "unusable_reason": null,
+      "incomplete": null
+    },
+    {
+      "library": "RustCrypto ml-kem",
+      "implementation": "pure Rust",
+      "algorithm": "ML-KEM-768",
+      "other_ciphertext": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 10026,
+          "n_b_faster": 9967,
+          "n_ties": 7,
+          "sign_z": 0.4172660288456154,
+          "delta_ns": 5.5,
+          "delta_ci95_ns": [
+            -19.25,
+            35.2
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 5.5,
+          "median_delta_ci95_ns": [
+            -19.0,
+            35.0
+          ],
+          "clipped_mean_delta_ns": 137.12675550999487,
+          "clipped_mean_delta_ci95_ns": [
+            -27.923909389818704,
+            302.1774204098084
+          ],
+          "median_a_ns": 91205.0,
+          "median_b_ns": 91254.5,
+          "welch_t_raw": -1.0431211603091732,
+          "cohens_d_raw": 0.010431211603091734,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "bit_flip": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9963,
+          "n_b_faster": 10034,
+          "n_ties": 3,
+          "sign_z": -0.502083472315088,
+          "delta_ns": -6.125,
+          "delta_ci95_ns": [
+            -35.916666666666664,
+            26.2
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": -6.0,
+          "median_delta_ci95_ns": [
+            -36.0,
+            26.0
+          ],
+          "clipped_mean_delta_ns": 40.66717996098963,
+          "clipped_mean_delta_ci95_ns": [
+            -123.79525903222732,
+            205.1296189542066
+          ],
+          "median_a_ns": 91205.0,
+          "median_b_ns": 91218.0,
+          "welch_t_raw": -0.06443486583447759,
+          "cohens_d_raw": 0.0006443486583447759,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "negative_control": {
+        "n_pairs": 20000,
+        "n_b_slower": 9944,
+        "n_b_faster": 10046,
+        "n_ties": 10,
+        "sign_z": -0.7214292966847532,
+        "delta_ns": -12.875,
+        "delta_ci95_ns": [
+          -41.0,
+          17.88888888888889
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": -13.0,
+        "median_delta_ci95_ns": [
+          -41.0,
+          18.0
+        ],
+        "clipped_mean_delta_ns": -102.66622210823289,
+        "clipped_mean_delta_ci95_ns": [
+          -267.7543405878263,
+          62.42189637136053
+        ],
+        "median_a_ns": 91233.0,
+        "median_b_ns": 91217.0,
+        "welch_t_raw": -1.3331801440531126,
+        "cohens_d_raw": 0.013331801440531124,
+        "difference_detected": false
+      },
+      "negative_control_passed": true,
+      "reference": {
+        "n_pairs": 20000,
+        "n_b_slower": 9994,
+        "n_b_faster": 9995,
+        "n_ties": 11,
+        "sign_z": -0.00707301315800581,
+        "delta_ns": -0.04545454545454547,
+        "delta_ci95_ns": [
+          -22.2,
+          30.583333333333332
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 0.0,
+        "median_delta_ci95_ns": [
+          -22.0,
+          31.0
+        ],
+        "clipped_mean_delta_ns": -38.85994871794872,
+        "clipped_mean_delta_ci95_ns": [
+          -207.32820195658837,
+          129.60830452069092
+        ],
+        "median_a_ns": 91233.0,
+        "median_b_ns": 91240.0,
+        "welch_t_raw": 0.041586949063651193,
+        "cohens_d_raw": 0.0004158694906365119,
+        "difference_detected": false
+      },
+      "reference_visible": false,
+      "reference_nominal_ns": 19.3876953125,
+      "reference_size_plausible": null,
+      "detectable_shift_50_ns": null,
+      "detectable_shift_95_ns": null,
+      "further_negative_controls": [],
+      "usable": true,
+      "unusable_reason": null,
+      "incomplete": null
+    },
+    {
+      "library": "liboqs",
+      "implementation": "C library as linked; its code path is chosen by its build options and the CPU",
+      "algorithm": "ML-KEM-768",
+      "other_ciphertext": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9965,
+          "n_b_faster": 9943,
+          "n_ties": 92,
+          "sign_z": 0.15592252703960616,
+          "delta_ns": 0.11956521739130432,
+          "delta_ci95_ns": [
+            -1.4375,
+            1.671875
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 0.0,
+          "median_delta_ci95_ns": [
+            -1.0,
+            2.0
+          ],
+          "clipped_mean_delta_ns": -0.4642704550309763,
+          "clipped_mean_delta_ci95_ns": [
+            -2.5154289379549297,
+            1.586888027892977
+          ],
+          "median_a_ns": 10489.0,
+          "median_b_ns": 10491.0,
+          "welch_t_raw": -0.11094067381613816,
+          "cohens_d_raw": 0.0011094067381613815,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "bit_flip": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9914,
+          "n_b_faster": 9996,
+          "n_ties": 90,
+          "sign_z": -0.5811365922265704,
+          "delta_ns": -0.45555555555555555,
+          "delta_ci95_ns": [
+            -2.1758241758241756,
+            1.1772151898734178
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 0.0,
+          "median_delta_ci95_ns": [
+            -2.0,
+            1.0
+          ],
+          "clipped_mean_delta_ns": 0.24418418951290924,
+          "clipped_mean_delta_ci95_ns": [
+            -1.7814588217962164,
+            2.269827200822035
+          ],
+          "median_a_ns": 10489.0,
+          "median_b_ns": 10489.0,
+          "welch_t_raw": -1.434767165714228,
+          "cohens_d_raw": 0.01434767165714228,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "negative_control": {
+        "n_pairs": 20000,
+        "n_b_slower": 9904,
+        "n_b_faster": 10021,
+        "n_ties": 75,
+        "sign_z": -0.8288705259617029,
+        "delta_ns": -0.7625,
+        "delta_ci95_ns": [
+          -2.5688073394495414,
+          1.0723684210526314
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": -1.0,
+        "median_delta_ci95_ns": [
+          -3.0,
+          1.0
+        ],
+        "clipped_mean_delta_ns": -1.766831393804134,
+        "clipped_mean_delta_ci95_ns": [
+          -3.791457811553791,
+          0.2577950239455231
+        ],
+        "median_a_ns": 10489.0,
+        "median_b_ns": 10488.0,
+        "welch_t_raw": -1.3224853368523588,
+        "cohens_d_raw": 0.013224853368523587,
+        "difference_detected": false
+      },
+      "negative_control_passed": true,
+      "reference": {
+        "n_pairs": 20000,
+        "n_b_slower": 11566,
+        "n_b_faster": 8356,
+        "n_ties": 78,
+        "sign_z": 22.74251891170263,
+        "delta_ns": 18.524390243902438,
+        "delta_ci95_ns": [
+          17.11340206185567,
+          20.06132075471698
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 19.0,
+        "median_delta_ci95_ns": [
+          17.0,
+          20.0
+        ],
+        "clipped_mean_delta_ns": 16.382764140875132,
+        "clipped_mean_delta_ci95_ns": [
+          14.388407593390895,
+          18.37712068835937
+        ],
+        "median_a_ns": 10489.0,
+        "median_b_ns": 10507.0,
+        "welch_t_raw": 2.005205894281715,
+        "cohens_d_raw": 0.020052058942817155,
+        "difference_detected": true
+      },
+      "reference_visible": true,
+      "reference_nominal_ns": 19.3935546875,
+      "reference_size_plausible": true,
+      "detectable_shift_50_ns": 3.6653704201018167,
+      "detectable_shift_95_ns": 5.005266940339037,
+      "further_negative_controls": [],
+      "usable": true,
+      "unusable_reason": null,
+      "incomplete": null
+    },
+    {
+      "library": "aws-lc-rs",
+      "implementation": "AWS-LC via aws-lc-sys, default (non-FIPS) build",
+      "algorithm": "ML-KEM-768",
+      "other_ciphertext": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 10005,
+          "n_b_faster": 9943,
+          "n_ties": 52,
+          "sign_z": 0.4389772461744608,
+          "delta_ns": 0.631578947368421,
+          "delta_ci95_ns": [
+            -2.5531914893617023,
+            4.12037037037037
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 1.0,
+          "median_delta_ci95_ns": [
+            -3.0,
+            4.0
+          ],
+          "clipped_mean_delta_ns": -2.272117962466488,
+          "clipped_mean_delta_ci95_ns": [
+            -10.011418473406167,
+            5.46718254847319
+          ],
+          "median_a_ns": 16248.0,
+          "median_b_ns": 16245.0,
+          "welch_t_raw": 0.5454200995918066,
+          "cohens_d_raw": 0.005454200995918066,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "bit_flip": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 9999,
+          "n_b_faster": 9968,
+          "n_ties": 33,
+          "sign_z": 0.21938416882794518,
+          "delta_ns": 0.4696969696969697,
+          "delta_ci95_ns": [
+            -3.170212765957447,
+            3.979591836734694
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 0.0,
+          "median_delta_ci95_ns": [
+            -3.0,
+            4.0
+          ],
+          "clipped_mean_delta_ns": 0.9483543417366946,
+          "clipped_mean_delta_ci95_ns": [
+            -6.760552858593448,
+            8.657261542066836
+          ],
+          "median_a_ns": 16248.0,
+          "median_b_ns": 16240.0,
+          "welch_t_raw": 0.7078452637522242,
+          "cohens_d_raw": 0.007078452637522242,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "negative_control": {
+        "n_pairs": 20000,
+        "n_b_slower": 10032,
+        "n_b_faster": 9924,
+        "n_ties": 44,
+        "sign_z": 0.7645167551542644,
+        "delta_ns": 1.1956521739130435,
+        "delta_ci95_ns": [
+          -2.2205882352941178,
+          4.7375
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 1.0,
+        "median_delta_ci95_ns": [
+          -2.0,
+          5.0
+        ],
+        "clipped_mean_delta_ns": -4.307817494914269,
+        "clipped_mean_delta_ci95_ns": [
+          -11.98492877291919,
+          3.3692937830906535
+        ],
+        "median_a_ns": 16241.0,
+        "median_b_ns": 16249.0,
+        "welch_t_raw": 1.097744886483119,
+        "cohens_d_raw": 0.01097744886483119,
+        "difference_detected": false
+      },
+      "negative_control_passed": true,
+      "reference": {
+        "n_pairs": 20000,
+        "n_b_slower": 10805,
+        "n_b_faster": 9155,
+        "n_ties": 40,
+        "sign_z": 11.678946681579738,
+        "delta_ns": 19.5,
+        "delta_ci95_ns": [
+          16.3375,
+          22.636363636363637
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 19.5,
+        "median_delta_ci95_ns": [
+          16.0,
+          23.0
+        ],
+        "clipped_mean_delta_ns": 18.708287228466602,
+        "clipped_mean_delta_ci95_ns": [
+          10.940515632007873,
+          26.47605882492533
+        ],
+        "median_a_ns": 16241.0,
+        "median_b_ns": 16270.0,
+        "welch_t_raw": 1.208511986129225,
+        "cohens_d_raw": 0.01208511986129225,
+        "difference_detected": true
+      },
+      "reference_visible": true,
+      "reference_nominal_ns": 19.3876953125,
+      "reference_size_plausible": true,
+      "detectable_shift_50_ns": 7.513520045296636,
+      "detectable_shift_95_ns": 10.26012903963285,
+      "further_negative_controls": [],
+      "usable": true,
+      "unusable_reason": null,
+      "incomplete": null
+    },
+    {
+      "library": "libcrux-ml-kem",
+      "implementation": "Rust; AVX2 code on x86-64 with AVX2, NEON code on AArch64, portable code otherwise",
+      "algorithm": "ML-KEM-768",
+      "other_ciphertext": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 10011,
+          "n_b_faster": 9956,
+          "n_ties": 33,
+          "sign_z": 0.3892299769528059,
+          "delta_ns": 1.5,
+          "delta_ci95_ns": [
+            -4.175,
+            8.477272727272727
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 1.5,
+          "median_delta_ci95_ns": [
+            -4.0,
+            8.0
+          ],
+          "clipped_mean_delta_ns": 3.4597082320250085,
+          "clipped_mean_delta_ci95_ns": [
+            -15.852473116507195,
+            22.77188958055721
+          ],
+          "median_a_ns": 24358.5,
+          "median_b_ns": 24361.5,
+          "welch_t_raw": 1.2025595271887264,
+          "cohens_d_raw": 0.012025595271887264,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "bit_flip": {
+        "first_run": {
+          "n_pairs": 20000,
+          "n_b_slower": 10042,
+          "n_b_faster": 9935,
+          "n_ties": 23,
+          "sign_z": 0.75703967890511,
+          "delta_ns": 2.8846153846153846,
+          "delta_ci95_ns": [
+            -4.352941176470588,
+            7.739130434782608
+          ],
+          "delta_estimator": "interpolated median",
+          "median_delta_ns": 3.0,
+          "median_delta_ci95_ns": [
+            -4.0,
+            8.0
+          ],
+          "clipped_mean_delta_ns": 3.5403618649965205,
+          "clipped_mean_delta_ci95_ns": [
+            -15.941559995990211,
+            23.02228372598325
+          ],
+          "median_a_ns": 24358.5,
+          "median_b_ns": 24362.0,
+          "welch_t_raw": 0.5667456640498237,
+          "cohens_d_raw": 0.005667456640498237,
+          "difference_detected": false
+        },
+        "confirmation_run": null,
+        "confirmed": false,
+        "fresh_inputs_run": null,
+        "reproduced_with_fresh_inputs": null,
+        "outcome": "no difference detected"
+      },
+      "negative_control": {
+        "n_pairs": 20000,
+        "n_b_slower": 9996,
+        "n_b_faster": 9984,
+        "n_ties": 20,
+        "sign_z": 0.08489527199560178,
+        "delta_ns": 0.30000000000000004,
+        "delta_ci95_ns": [
+          -6.125,
+          6.75
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 0.0,
+        "median_delta_ci95_ns": [
+          -6.0,
+          7.0
+        ],
+        "clipped_mean_delta_ns": -3.473833179297597,
+        "clipped_mean_delta_ci95_ns": [
+          -22.420193882676344,
+          15.472527524081151
+        ],
+        "median_a_ns": 24361.5,
+        "median_b_ns": 24354.0,
+        "welch_t_raw": -0.4237712331149739,
+        "cohens_d_raw": 0.004237712331149738,
+        "difference_detected": false
+      },
+      "negative_control_passed": true,
+      "reference": {
+        "n_pairs": 20000,
+        "n_b_slower": 10536,
+        "n_b_faster": 9440,
+        "n_ties": 24,
+        "sign_z": 7.754544445127757,
+        "delta_ns": 24.547619047619047,
+        "delta_ci95_ns": [
+          18.732142857142858,
+          32.06666666666667
+        ],
+        "delta_estimator": "interpolated median",
+        "median_delta_ns": 25.0,
+        "median_delta_ci95_ns": [
+          19.0,
+          32.0
+        ],
+        "clipped_mean_delta_ns": 33.929372975474315,
+        "clipped_mean_delta_ci95_ns": [
+          15.205484300629529,
+          52.6532616503191
+        ],
+        "median_a_ns": 24361.5,
+        "median_b_ns": 24373.0,
+        "welch_t_raw": -0.4582466147417413,
+        "cohens_d_raw": 0.004582466147417412,
+        "difference_detected": true
+      },
+      "reference_visible": true,
+      "reference_nominal_ns": 19.4013671875,
+      "reference_size_plausible": true,
+      "detectable_shift_50_ns": 14.245103177362187,
+      "detectable_shift_95_ns": 19.45247978330903,
+      "further_negative_controls": [],
+      "usable": true,
+      "unusable_reason": null,
+      "incomplete": null
+    }
+  ],
+  "skipped": [],
+  "timestamp": "2026-11-25T12:08:07Z"
+}
