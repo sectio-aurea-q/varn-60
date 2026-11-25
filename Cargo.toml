@@ -1,0 +1,42 @@
+[package]
+name = "varn-60"
+version = "2.0.0"
+edition = "2021"
+authors = ["Sabrina Hackfort <meg.depth@proton.me>"]
+description = "VÄRN-60 (Anu) — timing side-channel tests for ML-KEM (FIPS 203) implementations, with negative and positive controls"
+license = "Apache-2.0"
+repository = "https://github.com/sectio-aurea-q/varn-60"
+readme = "README.md"
+keywords = ["ml-kem", "timing", "side-channel", "post-quantum", "constant-time"]
+categories = ["cryptography", "command-line-utilities"]
+exclude = ["results/"]
+
+[[bin]]
+name = "anu"
+path = "src/main.rs"
+
+[features]
+default = ["liboqs"]
+# Link liboqs and include it in `multi-lib` and `ci`. Without this feature
+# (`--no-default-features`) the tool builds without liboqs and reports that
+# library as skipped.
+liboqs = []
+
+[dependencies]
+# measured libraries (the exact versions are pinned by Cargo.lock; build with
+# --locked to measure the versions named in the README)
+pqcrypto-traits = "0.3"
+pqcrypto-mlkem = "0.1"
+ml-kem = { version = "0.3", features = ["getrandom"] }
+aws-lc-rs = "1"
+libcrux-ml-kem = "0.0.12"
+
+# tool
+rand = "0.8"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = true

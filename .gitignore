@@ -1,0 +1,4 @@
+/target
+# outputs of local runs; curated results are kept under results/
+/anu-*.json
+.DS_Store
